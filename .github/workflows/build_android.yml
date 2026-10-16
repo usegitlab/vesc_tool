@@ -27,27 +27,14 @@ jobs:
             "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
 
-      - name: Install aqtinstall (latest)
-        run: pip install aqtinstall
-
-      - name: Install Qt 5.15.2 desktop (gcc_64)
-        run: aqt install-qt linux desktop 5.15.2 gcc_64 -O $HOME/Qt
-
-      - name: Download Qt 5.15.2 Android arm64 from archive
+      - name: Install Qt 5.15.2 for Android (multi-arch)
         run: |
-          sudo apt-get install -y p7zip-full
-          BASE="https://download.qt.io/archive/qt/5.15/5.15.2/submodules"
-          PKGS=(
-            "qtbase-everywhere-src-5.15.2"
-          )
-          # Use the pre-built Android packages via aqt archive base
-          aqt install-qt linux android 5.15.2 android_arm64_v8a \
-            --base https://download.qt.io -O $HOME/Qt \
-          || aqt install-qt linux android 5.15.2 android_arm64_v8a \
-            --base https://mirrors.ocf.berkeley.edu/qt -O $HOME/Qt \
-          || aqt install-qt linux android 5.15.2 android_arm64_v8a \
-            --base https://ftp.fau.de/qtproject -O $HOME/Qt
-          echo "QT_ANDROID=$HOME/Qt/5.15.2/android_arm64_v8a" >> $GITHUB_ENV
+          pip install aqtinstall
+          # Qt 5.15.2 uses unified multi-arch package, arch is "android" not "android_arm64_v8a"
+          aqt install-qt linux android 5.15.2 android -O $HOME/Qt
+          aqt install-qt linux desktop 5.15.2 gcc_64  -O $HOME/Qt
+          echo "QT_ANDROID=$HOME/Qt/5.15.2/android" >> $GITHUB_ENV
+          echo "QT_HOST=$HOME/Qt/5.15.2/gcc_64"     >> $GITHUB_ENV
 
       - name: Install build dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential libgl1-mesa-dev
@@ -55,13 +42,13 @@ jobs:
       - name: Build APK
         run: |
           mkdir -p build/android
-          $HOME/Qt/5.15.2/android_arm64_v8a/bin/qmake \
+          $QT_ANDROID/bin/qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          $HOME/Qt/5.15.2/gcc_64/bin/androiddeployqt \
+          $QT_HOST/bin/androiddeployqt \
             --gradle \
             --no-gdbserver \
             --output build/android/build \
