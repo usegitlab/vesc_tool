@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    container:
-      image: rabits/qt:5.15-android
 
     steps:
       - name: Checkout
@@ -17,16 +15,43 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Build APK (mobile)
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install Android SDK & NDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install NDK 23 + platform 31
+        run: |
+          sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0"
+          echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
+
+      - name: Install Qt 5.15.2 for Android via aqtinstall
+        run: |
+          pip install aqtinstall
+          aqt install-qt linux android 5.15.2 android_arm64_v8a -O $HOME/Qt
+          aqt install-qt linux desktop 5.15.2 gcc_64 -O $HOME/Qt
+          echo "QT_ANDROID=$HOME/Qt/5.15.2/android_arm64_v8a" >> $GITHUB_ENV
+          echo "QT_HOST=$HOME/Qt/5.15.2/gcc_64" >> $GITHUB_ENV
+          echo "$HOME/Qt/5.15.2/gcc_64/bin" >> $GITHUB_PATH
+          echo "$HOME/Qt/5.15.2/android_arm64_v8a/bin" >> $GITHUB_PATH
+
+      - name: Install build dependencies
+        run: sudo apt-get install -y build-essential libgl1-mesa-dev
+
+      - name: Build APK
         run: |
           mkdir -p build/android
-          qmake \
+          $QT_ANDROID/bin/qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          androiddeployqt \
+          $QT_ANDROID/bin/androiddeployqt \
             --gradle \
             --no-gdbserver \
             --output build/android/build \
