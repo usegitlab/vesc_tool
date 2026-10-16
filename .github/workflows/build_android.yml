@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    container:
+      image: rabits/qt:5.15-android
 
     steps:
       - name: Checkout
@@ -15,54 +17,21 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Qt for Android (arm64)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '5.15.2'
-          host: 'linux'
-          target: 'android'
-          arch: 'android_arm64_v8a'
-          install-deps: 'true'
-
-      - name: Install Qt tools (desktop)
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '5.15.2'
-          host: 'linux'
-          target: 'desktop'
-          arch: 'gcc_64'
-          install-deps: 'true'
-          set-env: 'false'
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install NDK + platform
-        run: |
-          sdkmanager "ndk;23.2.8568313" "platforms;android-33" "build-tools;33.0.2"
-          echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
-
-      - name: Build APK (mobile, Chinese)
+      - name: Build APK (mobile)
         run: |
           mkdir -p build/android
-          $Qt5_DIR/bin/qmake \
+          qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          $Qt5_DIR/bin/androiddeployqt \
+          androiddeployqt \
             --gradle \
             --no-gdbserver \
             --output build/android/build \
             --input android-vesc_tool-deployment-settings.json \
-            --android-platform android-33
+            --android-platform android-31
           cp build/android/build/build/outputs/apk/debug/build-debug.apk \
              build/android/vesc_tool_mobile_zh.apk
 
