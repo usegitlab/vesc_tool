@@ -261,8 +261,8 @@ Item {
                                 fileDialogSave.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -279,10 +279,10 @@ Item {
                                     path += ".xml"
                                 }
 
-                                if (VescIf.appConfig().saveXml(path, "APPConfiguration")) {
-                                    VescIf.emitStatusMessage("Appconf Saved", true)
+                                if (VescIf.appConfig().saveXml(path, "应用配置")) {
+                                    VescIf.emitStatusMessage("应用配置已保存", true)
                                 } else {
-                                    VescIf.emitStatusMessage("Appconf Save Failed", false)
+                                    VescIf.emitStatusMessage("应用配置保存失败", false)
                                 }
 
                                 close()
@@ -302,8 +302,8 @@ Item {
                                 fileDialogLoad.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -316,10 +316,10 @@ Item {
                             selectMultiple: false
                             onAccepted: {
                                 var path = fileUrl.toString()
-                                if (VescIf.appConfig().loadXml(path, "APPConfiguration")) {
-                                    VescIf.emitStatusMessage("Appconf Loaded", true)
+                                if (VescIf.appConfig().loadXml(path, "应用配置")) {
+                                    VescIf.emitStatusMessage("应用配置已加载", true)
                                 } else {
-                                    VescIf.emitStatusMessage("Appconf Load Failed", false)
+                                    VescIf.emitStatusMessage("应用配置加载失败", false)
                                 }
 
                                 close()

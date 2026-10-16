@@ -30,7 +30,7 @@ Item {
 
     function createEditor(parent, name, conf) {
         if (conf === null) {
-            console.log("Config is null, cannot create editor")
+            console.log("配置为空，无法创建编辑器")
             return null
         }
 

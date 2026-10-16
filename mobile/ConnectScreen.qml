@@ -250,7 +250,7 @@ Item {
                                 anchors.fill: parent
                                 wrapMode: Text.WordWrap
                                 text:
-                                    "This is going to clear all previous TCP hub connections. Continue?"
+                                    "这将清除所有 TCP Hub 连接记录，继续吗？"
                             }
                         }
                     }
@@ -272,7 +272,7 @@ Item {
 
                 property int dots: 0
                 onTriggered: {
-                    var text = "Scanning"
+                    var text = "扫描中"
                     for (var i = 0;i < dots;i++) {
                         text = "-" + text + "-"
                     }
@@ -585,7 +585,7 @@ Item {
         
         function formatSerialPort(port){
             return {
-                "name": "Serial " + 
+                "name": "串口 " + 
                     (port.isVesc ? "STM32" : port.isEsp ? "ESP32" : "") + 
                     "\n" + port.systemPath,
                 "setName": "",
@@ -700,8 +700,8 @@ Item {
 
         onTriggered: {
             enableDialog()
-            VescIf.emitMessageDialog("Connect",
-                                     "Connection timed out",
+            VescIf.emitMessageDialog("连接",
+                                     "连接超时",
                                      false, false)
         }
     }
@@ -886,7 +886,7 @@ Item {
             wrapMode: Text.WordWrap
             text:
                 "VESC Tool needs to access the location of your device to scan for " +
-                "Bluetooth devices as well as for recording your location when doing " +
+                "蓝牙设备以及在骑行时记录您的位置" +
                 "realtime data logging.\n\n" +
 
                 "In order to keep logging when VESC Tool is in the background and/or when the " +

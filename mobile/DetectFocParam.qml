@@ -45,24 +45,24 @@ Item {
 
     function updateDisplay() {
         resultArea.text =
-                "R      : " + parseFloat(res * 1e3).toFixed(2) + " m\u03A9\n" +
+                "电阻：" + parseFloat(res * 1e3).toFixed(2) + " m\u03A9\n" +
                 "L      : " + parseFloat(ind * 1e6).toFixed(2) + " µH\n" +
                 "\u03BB      : " + parseFloat(lambda * 1e3).toFixed(3) + " mWb\n" +
                 "KP     : " + parseFloat(kp).toFixed(4) + "\n" +
                 "KI     : " + parseFloat(ki).toFixed(2) + "\n" +
-                "Gain   : " + parseFloat(gain).toFixed(2)
+                "增益：" + parseFloat(gain).toFixed(2)
     }
 
     function calcKpKi() {
         if (res < 1e-10) {
-            VescIf.emitMessageDialog("Calculate Error",
-                                     "R is 0. Please measure it first.",
+            VescIf.emitMessageDialog("计算错误",
+                                     "电阻为 0，请先进行测量。",
                                      false, false)
             return;
         }
 
         if (ind < 1e-10) {
-            VescIf.emitMessageDialog("Calculate Error",
+            VescIf.emitMessageDialog("计算错误",
                                      "L is 0. Please measure it first.",
                                      false, false)
             return;
@@ -79,15 +79,15 @@ Item {
 
     function calcGain() {
         if (lambda < 1e-10) {
-            VescIf.emitMessageDialog("Calculate Error",
+            VescIf.emitMessageDialog("计算错误",
                                      "\u03BB is 0. Please measure it first.",
                                      false, false)
             return;
         }
 
         if (res < 1e-10) {
-            VescIf.emitMessageDialog("Calculate Error",
-                                     "R is 0. Please measure it first.",
+            VescIf.emitMessageDialog("计算错误",
+                                     "电阻为 0，请先进行测量。",
                                      false, false)
             return;
         }
@@ -102,8 +102,8 @@ Item {
             return true
         } else {
             VescIf.emitMessageDialog(
-                        "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "连接错误",
+                        "VESC 未连接，请连接后再运行检测。",
                         false, false)
             return false
         }
@@ -222,8 +222,8 @@ Item {
                             }
 
                             if (res < 1e-9) {
-                                VescIf.emitMessageDialog("Detect",
-                                                         "R is 0. Please measure it first.",
+                                VescIf.emitMessageDialog("检测",
+                                                         "电阻为 0，请先进行测量。",
                                                          false, false)
                             } else {
                                 detectLambdaDialog.open()
@@ -255,21 +255,21 @@ Item {
                     Layout.fillWidth: true
                     onClicked: {
                         if (res < 1e-10) {
-                            VescIf.emitMessageDialog("Apply Error",
-                                                     "R is 0. Please measure it first.",
+                            VescIf.emitMessageDialog("应用错误",
+                                                     "电阻为 0，请先进行测量。",
                                                      false, false)
                             return
                         }
 
                         if (ind < 1e-10) {
-                            VescIf.emitMessageDialog("Apply Error",
+                            VescIf.emitMessageDialog("应用错误",
                                                      "L is 0. Please measure it first.",
                                                      false, false)
                             return
                         }
 
                         if (lambda < 1e-10) {
-                            VescIf.emitMessageDialog("Apply Error",
+                            VescIf.emitMessageDialog("应用错误",
                                                      "\u03BB is 0. Please measure it first.",
                                                      false, false)
                             return
@@ -316,7 +316,7 @@ Item {
             anchors.fill: parent
             wrapMode: Text.WordWrap
             text:
-                "When measuring R & L the motor is going to make some noises, but " +
+                "测量 R & L 时电机会发出噪声，但" +
                 "not rotate. These noises are completely normal, so don't unplug " +
                 "anything unless you see smoke."
         }
@@ -366,12 +366,12 @@ Item {
 
         function onMotorRLReceived(r, l, ld_lq_diff) {
             if (r < 1e-9 && l < 1e-9) {
-                VescIf.emitStatusMessage("Bad FOC Detection Result Received", false)
-                VescIf.emitMessageDialog("Bad Detection Result",
-                                         "Could not measure the motor resistance and inductance.",
+                VescIf.emitStatusMessage("收到错误 FOC 检测结果", false)
+                VescIf.emitMessageDialog("检测结果错误",
+                                         "无法测量电机电阻和电感。",
                                          false, false)
             } else {
-                VescIf.emitStatusMessage("FOC Detection Result Received", true)
+                VescIf.emitStatusMessage("已收到 FOC 检测结果", true)
                 res = r
                 ind = l * 1e-6
                 calcKpKi()
@@ -380,13 +380,13 @@ Item {
 
         function onMotorLinkageReceived(flux_linkage) {
             if (flux_linkage < 1e-9) {
-                VescIf.emitStatusMessage("Bad FOC Detection Result Received", false)
-                VescIf.emitMessageDialog("Bad Detection Result",
-                                         "Could not measure the flux linkage properly. Adjust " +
+                VescIf.emitStatusMessage("收到错误 FOC 检测结果", false)
+                VescIf.emitMessageDialog("检测结果错误",
+                                         "无法正确测量磁通量，请调整" +
                                          "the start parameters according to the help text and try again.",
                                          false, false)
             } else {
-                VescIf.emitStatusMessage("FOC Detection Result Received", true)
+                VescIf.emitStatusMessage("已收到 FOC 检测结果", true)
                 lambda = flux_linkage
                 calcGain()
             }

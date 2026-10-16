@@ -46,7 +46,7 @@ Item {
             return
         }
 
-        tabBox.model = VescIf.customConfig(confInd).getParamSubgroups("General")
+        tabBox.model = VescIf.customConfig(confInd).getParamSubgroups("常规")
         updateEditors()
     }
 
@@ -78,7 +78,7 @@ Item {
             return
         }
 
-        var params = VescIf.customConfig(confInd).getParamsFromSubgroup("General", tabBox.currentText)
+        var params = VescIf.customConfig(confInd).getParamsFromSubgroup("常规", tabBox.currentText)
 
         for (var i = 0;i < params.length;i++) {
             if (params[i].startsWith("::sep::")) {
@@ -174,8 +174,8 @@ Item {
                                 fileDialogSave.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -192,10 +192,10 @@ Item {
                                     path += ".xml"
                                 }
 
-                                if (VescIf.customConfig(confInd).saveXml(path, "CustomConfiguration")) {
-                                    VescIf.emitStatusMessage("Custom Config Saved", true)
+                                if (VescIf.customConfig(confInd).saveXml(path, "自定义配置")) {
+                                    VescIf.emitStatusMessage("自定义配置已保存", true)
                                 } else {
-                                    VescIf.emitStatusMessage("Save Failed", false)
+                                    VescIf.emitStatusMessage("保存失败", false)
                                 }
 
                                 close()
@@ -215,8 +215,8 @@ Item {
                                 fileDialogLoad.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -229,8 +229,8 @@ Item {
                             selectMultiple: false
                             onAccepted: {
                                 var path = fileUrl.toString()
-                                if (VescIf.customConfig(confInd).loadXml(path, "CustomConfiguration")) {
-                                    VescIf.emitStatusMessage("Custom Config Loaded", true)
+                                if (VescIf.customConfig(confInd).loadXml(path, "自定义配置")) {
+                                    VescIf.emitStatusMessage("自定义配置已加载", true)
                                 } else {
                                     VescIf.emitStatusMessage("Load Failed", false)
                                 }

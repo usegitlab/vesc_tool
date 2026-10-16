@@ -198,8 +198,8 @@ Item {
             anchors.fill: parent
             wrapMode: Text.WordWrap
             text:
-                "The theme has been changed. This requires restarting VESC Tool to take effect. " +
-                "Do you want to close VESC Tool now?"
+                "主题已更改，需要重启 VESC Tool 才能生效。" +
+                "是否立即关闭 VESC Tool？"
         }
 
         onAccepted: {

@@ -91,8 +91,8 @@ Item {
             return true
         } else {
             VescIf.emitMessageDialog(
-                        "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "连接错误",
+                        "VESC 未连接，请连接后再运行检测。",
                         false, false)
             return false
         }
@@ -203,7 +203,7 @@ Item {
 
                     DoubleSpinBox {
                         id: speedKmhBox
-                        prefix: "Forward: "
+                        prefix: "正转："
                         realFrom: 0.0
                         realTo: 400.0
                         Layout.fillWidth: true
@@ -215,7 +215,7 @@ Item {
 
                     DoubleSpinBox {
                         id: speedKmhRevBox
-                        prefix: "Reverse: "
+                        prefix: "反转："
                         realFrom: 0.0
                         realTo: 400.0
                         Layout.fillWidth: true
@@ -238,7 +238,7 @@ Item {
                     DoubleSpinBox {
                         id: currentBox
                         Layout.fillWidth: true
-                        prefix: "Accel: "
+                        prefix: "加速度："
                         suffix: " %"
                         realFrom: 0
                         realTo: 100
@@ -249,7 +249,7 @@ Item {
                         id: currentBrakeBox
                         Layout.fillWidth: true
                         Layout.bottomMargin: 20
-                        prefix: "Brake: "
+                        prefix: "刹车："
                         suffix: " %"
                         realFrom: 0
                         realTo: 100
@@ -282,7 +282,7 @@ Item {
 
                     DoubleSpinBox {
                         id: powerMinBox
-                        prefix: "Regen: "
+                        prefix: "回馈："
                         Layout.fillWidth: true
                         visible: powerBox.checked
                     }

@@ -109,8 +109,8 @@ Item {
 
                         onClicked: {
                             if (!VescIf.isPortConnected()) {
-                                VescIf.emitMessageDialog("Quick Pair",
-                                                         "You are not connected to the VESC. Please connect in order " +
+                                VescIf.emitMessageDialog("快速配对",
+                                                         "未连接到 VESC，请先连接" +
                                                          "to quick pair an NRF-based remote.", false, false)
                             } else {
                                 nrfPairStartDialog.open()
@@ -129,8 +129,8 @@ Item {
 
                         onClicked: {
                             if (!VescIf.isPortConnected()) {
-                                VescIf.emitMessageDialog("FOC Setup Wizard",
-                                                         "You are not connected to the VESC. Please connect in order " +
+                                VescIf.emitMessageDialog("FOC 设置向导",
+                                                         "未连接到 VESC，请先连接" +
                                                          "to run this wizard.", false, false)
                             } else {
                                 wizardFoc.openDialog()
@@ -150,7 +150,7 @@ Item {
                         onClicked: {
                             if (!VescIf.isPortConnected()) {
                                 VescIf.emitMessageDialog("Input Setup Wizard",
-                                                         "You are not connected to the VESC. Please connect in order " +
+                                                         "未连接到 VESC，请先连接" +
                                                          "to run this wizard.", false, false)
                             } else {
                                 // Something in the opendialog function causes a weird glitch, probably
@@ -175,7 +175,7 @@ Item {
                         onClicked: {
                             if (!VescIf.isPortConnected()) {
                                 VescIf.emitMessageDialog("IMU Setup Wizard",
-                                                         "You are not connected to the VESC. Please connect in order " +
+                                                         "未连接到 VESC，请先连接" +
                                                          "to run this wizard.", false, false)
                             } else {
                                 wizardIMU.openDialog()
@@ -220,7 +220,7 @@ Item {
                         Layout.preferredWidth: 500
                         Layout.preferredHeight: 80
 
-                        buttonText: "Controls"
+                        buttonText: "控制"
                         imageSrc: "qrc" + Utility.getThemePath() + "icons/Controller-96.png"
 
                         onClicked: {
@@ -239,8 +239,8 @@ Item {
 
                         onClicked: {
                             if (!VescIf.isPortConnected()) {
-                                VescIf.emitMessageDialog("Directions",
-                                                         "You are not connected to the VESC. Please connect in order " +
+                                VescIf.emitMessageDialog("方向",
+                                                         "未连接到 VESC，请先连接" +
                                                          "to map directions.", false, false)
                             } else {
                                 enabled = false
@@ -417,10 +417,10 @@ Item {
         target: VescIf
         function onPortConnectedChanged() {
             if (VescIf.isPortConnected()) {
-                connectButton.buttonText = "Disconnect"
+                connectButton.buttonText = "断开"
                 connectButton.imageSrc = "qrc" + Utility.getThemePath() + "icons/Disconnected-96.png"
             } else {
-                connectButton.buttonText = "Connect"
+                connectButton.buttonText = "连接"
                 connectButton.imageSrc = "qrc" + Utility.getThemePath() + "icons/Connected-96.png"
             }
         }
@@ -474,7 +474,7 @@ Item {
             anchors.fill: parent
             wrapMode: Text.WordWrap
             text:
-                "After clicking OK the VESC will be put in pairing mode for 10 seconds. Switch" +
+                "点击确定后，VESC 将进入配对模式 10 秒。请切换" +
                 "on your remote during this time to complete the pairing process."
         }
 
@@ -642,7 +642,7 @@ Item {
 
                 Repeater {
                     id: rep
-                    model: ["Included", "Custom", "Bootloader", "Archive"]
+                    model: ["Included", "自定义", "引导程序", "存档"]
 
                     TabButton {
                         text: modelData

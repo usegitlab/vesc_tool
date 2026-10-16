@@ -25,7 +25,7 @@ Item {
 
     property bool workingIMU: false
     property int imuType: 0
-    property string imuString: "Unknown"
+    property string imuString: "未知"
     property var configuratorRestore: ({})
     property var orientationRestore: ({})
     property var filteredIMUValues: {
@@ -323,7 +323,7 @@ Item {
                         font.family: "DejaVu Sans Mono"
                         wrapMode: Text.Wrap
                         Layout.preferredWidth: parent.width
-                        text:"X Offset: " + filteredIMUValues.gyroX.toFixed(2) +
+                        text:"X 偏移：" + filteredIMUValues.gyroX.toFixed(2) +
                         "\nY Offset: " + filteredIMUValues.gyroY.toFixed(2) +
                         "\nZ Offset: " + filteredIMUValues.gyroZ.toFixed(2)
                     }// Text
@@ -358,7 +358,7 @@ Item {
                         Layout.preferredWidth: parent.width
                         text: "To find the accelerometer offsets, " +
                         "the IMU must be rotated to the max value for all 3 axes. " +
-                        "Avoid sharp movements & bumping the IMU to keep the reading stable. " +
+                        "避免剧烈运动和碰撞 IMU，以保持读数稳定。" +
                         "If you've overshot the reading, hit the 'Clear Max' button to reset the reading. " +
                         "\n\nAfter finding a stable max X value, hit 'SAVE' to continue.\n"
                     }// Text
@@ -431,7 +431,7 @@ Item {
                         Layout.preferredWidth: parent.width
                         text: "To find the accelerometer offsets, " +
                         "the IMU must be rotated to the max value for all 3 axes. " +
-                        "Avoid sharp movements & bumping the IMU to keep the reading stable. " +
+                        "避免剧烈运动和碰撞 IMU，以保持读数稳定。" +
                         "If you've overshot the reading, hit the 'Clear Max' button to reset the reading. " +
                         "\n\nAfter finding a stable max Y value, hit 'SAVE' to continue.\n"
                     }// Text
@@ -504,7 +504,7 @@ Item {
                         Layout.preferredWidth: parent.width
                         text: "To find the accelerometer offsets, " +
                         "the IMU must be rotated to the max value for all 3 axes. " +
-                        "Avoid sharp movements & bumping the IMU to keep the reading stable. " +
+                        "避免剧烈运动和碰撞 IMU，以保持读数稳定。" +
                         "If you've overshot the reading, hit the 'Clear Max' button to reset the reading. " +
                         "\n\nAfter finding a stable max Z value, hit 'SAVE' to continue.\n"
                     }// Text
@@ -586,7 +586,7 @@ Item {
                         font.family: "DejaVu Sans Mono"
                         wrapMode: Text.Wrap
                         Layout.preferredWidth: parent.width
-                        text: "Roll Offset: " + ((-filteredIMUValues.roll * 180.0/pi) - orientationRestore.rot_roll).toFixed(2)
+                        text: "滚转偏移：" + ((-filteredIMUValues.roll * 180.0/pi) - orientationRestore.rot_roll).toFixed(2)
                     }// Text
 
                     Button {
@@ -640,7 +640,7 @@ Item {
                         font.family: "DejaVu Sans Mono"
                         wrapMode: Text.Wrap
                         Layout.preferredWidth: parent.width
-                        text: "Pitch Offset: " + ((filteredIMUValues.pitch * 180.0/pi) - orientationRestore.rot_pitch).toFixed(2)
+                        text: "俯仰偏移：" + ((filteredIMUValues.pitch * 180.0/pi) - orientationRestore.rot_pitch).toFixed(2)
                     }// Text
                     Button {
                         id: skipPitchButton
@@ -693,7 +693,7 @@ Item {
                         font.family: "DejaVu Sans Mono"
                         wrapMode: Text.Wrap
                         Layout.preferredWidth: parent.width
-                        text: "Yaw Offset: " + ((-calculatedYawOffset * 180.0/pi) - orientationRestore.rot_yaw).toFixed(2)
+                        text: "偏航偏移：" + ((-calculatedYawOffset * 180.0/pi) - orientationRestore.rot_yaw).toFixed(2)
                     }// Text
                     Button {
                         id: skipYawButton
@@ -734,7 +734,7 @@ Item {
                         font.family: "DejaVu Sans Mono"
                         wrapMode: Text.Wrap
                         Layout.preferredWidth: parent.width
-                        text: "IMU Detected: " + (workingIMU ? "<font color=\"#00FF00\">True</font>" : "<font color=\"#FF0000\">False</font>") + "<br>" +
+                        text: "检测到 IMU：" + (workingIMU ? "<font color=\"#00FF00\">True</font>" : "<font color=\"#FF0000\">False</font>") + "<br>" +
                         "IMU Type: " + imuString
                     }// Text
                     Text {
@@ -755,7 +755,7 @@ Item {
 
                         function onIMUSearchCompleted(previousApp) {
                             searchIMUButton.enabled = true
-                            searchIMUButton.text = "Search for IMU"
+                            searchIMUButton.text = "搜索 IMU"
                             mAppConf.updateParamEnum("app_to_use", previousApp)
                             mCommands.setAppConfNoStore()
                             updateIMUType()
@@ -913,12 +913,12 @@ Item {
                     }
                     Text {
                         function getText(){
-                            return "Frequency: " + mAppConf.getParamInt("imu_conf.sample_rate_hz") + "\n" +
-                                "AHRS: " + getAHRS() + "\n" +
-                                "Acc Decay: " + mAppConf.getParamDouble("imu_conf.accel_confidence_decay").toFixed(3) + "\n" +
+                            return "频率：" + mAppConf.getParamInt("imu_conf.sample_rate_hz") + "\n" +
+                                "AHRS：" + getAHRS() + "\n" +
+                                "加速度衰减：" + mAppConf.getParamDouble("imu_conf.accel_confidence_decay").toFixed(3) + "\n" +
                                 "Mahony kp: " + mAppConf.getParamDouble("imu_conf.mahony_kp").toFixed(3) + "\n" +
-                                "Accel Z Filter: " + mAppConf.getParamDouble("imu_conf.accel_lowpass_filter_z").toFixed(1) + "\n" +
-                                "Gyro Filter: " + mAppConf.getParamDouble("imu_conf.gyro_lowpass_filter").toFixed(1)
+                                "加速度计 Z 滤波：" + mAppConf.getParamDouble("imu_conf.accel_lowpass_filter_z").toFixed(1) + "\n" +
+                                "陀螺仪滤波：" + mAppConf.getParamDouble("imu_conf.gyro_lowpass_filter").toFixed(1)
                         }
 
                         id: configuratorText5
@@ -950,7 +950,7 @@ Item {
                 id: prevButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: (stackLayout.currentIndex != 0) ? "Cancel" : "关闭"
+                text: (stackLayout.currentIndex != 0) ? "取消" : "关闭"
                 flat: true
 
                 onClicked: {
@@ -1233,7 +1233,7 @@ Item {
         }else if(imuMode === 2){
             return "Madgwick Fusion"
         }else if(imuMode === 3){
-            return "Unknown"
+            return "未知"
         }
     }
 

@@ -49,11 +49,11 @@ Item {
 
     function updateDisplay() {
         resultArea.text =
-                "Val: " + parseFloat(valueNow).toFixed(2) + "    Val2: " + parseFloat(valueNow2).toFixed(2) + "\n" +
+                "值：" + parseFloat(valueNow).toFixed(2) + "    Val2: " + parseFloat(valueNow2).toFixed(2) + "\n" +
                 "Now: " + parseFloat(vNow).toFixed(2) +     " V  Now2: " + parseFloat(vNow2).toFixed(2) +     " V\n" +
                 "Min: " + parseFloat(vMin).toFixed(2) +     " V  Min2: " + parseFloat(vMin2).toFixed(2) +     " V\n" +
                 "Max: " + parseFloat(vMax).toFixed(2) +     " V  Max2: " + parseFloat(vMax2).toFixed(2) +     " V\n" +
-                "Ctr: " + parseFloat(vCenter).toFixed(2) +  " V"
+                "计数：" + parseFloat(vCenter).toFixed(2) +  " V"
         valueBar.value = valueNow
         valueBar2.value = valueNow2
     }
@@ -138,7 +138,7 @@ Item {
                 mAppConf.updateParamDouble("app_adc_conf.voltage_center", vCenter)
                 mAppConf.updateParamDouble("app_adc_conf.voltage2_start", vMin2)
                 mAppConf.updateParamDouble("app_adc_conf.voltage2_end", vMax2)
-                VescIf.emitStatusMessage("Start, End and Center ADC Voltages Applied", true)
+                VescIf.emitStatusMessage("ADC 起始、结束和中心电压已应用", true)
                 mCommands.setAppConf()
             }
         }

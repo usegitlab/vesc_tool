@@ -150,7 +150,7 @@ Item {
                                         verticalAlignment: Text.AlignVCenter
                                         anchors.fill: parent
                                         wrapMode: Text.WordWrap
-                                        text: "This is going to delete this VESC from the paired list. If that VESC " +
+                                        text: "这将从配对列表中删除此 VESC。" +
                                               "has the pairing flag set you won't be able to connect to it over BLE " +
                                               "any more. Are you sure?"
                                     }
@@ -188,8 +188,8 @@ Item {
                                     VescIf.addPairedUuid(VescIf.getConnectedUuid());
                                     VescIf.storeSettings()
                                 } else {
-                                    VescIf.emitMessageDialog("Add UUID",
-                                                             "You are not connected to the VESC. Connect in order to add it.",
+                                    VescIf.emitMessageDialog("添加 UUID",
+                                                             "未连接到 VESC，请先连接再添加。",
                                                              false, false)
                                 }
                             }
@@ -207,15 +207,15 @@ Item {
                             onTriggered: {
                                 if (VescIf.isPortConnected()) {
                                     if (mCommands.isLimitedMode()) {
-                                        VescIf.emitMessageDialog("Unpair VESC",
-                                                                 "The fiwmare must be updated to unpair this VESC.",
+                                        VescIf.emitMessageDialog("取消配对 VESC",
+                                                                 "必须更新固件才能取消配对此 VESC。",
                                                                  false, false)
                                     } else {
                                         unpairConnectedDialog.open()
                                     }
                                 } else {
-                                    VescIf.emitMessageDialog("Unpair VESC",
-                                                             "You are not connected to the VESC. Connect in order to unpair it.",
+                                    VescIf.emitMessageDialog("取消配对 VESC",
+                                                             "未连接到 VESC，请先连接再取消配对。",
                                                              false, false)
                                 }
                             }
@@ -231,14 +231,14 @@ Item {
                         if (VescIf.isPortConnected()) {
                             if (mCommands.isLimitedMode()) {
                                 VescIf.emitMessageDialog("Pair VESC",
-                                                         "The fiwmare must be updated to pair this VESC.",
+                                                         "必须更新固件才能配对此 VESC。",
                                                          false, false)
                             } else {
                                 pairConnectedDialog.open()
                             }
                         } else {
                             VescIf.emitMessageDialog("Pair VESC",
-                                                     "You are not connected to the VESC. Connect in order to pair it.",
+                                                     "未连接到 VESC，请先连接再配对。",
                                                      false, false)
                         }
                     }

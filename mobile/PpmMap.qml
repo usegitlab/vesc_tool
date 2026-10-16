@@ -41,11 +41,11 @@ Item {
 
     function updateDisplay() {
         resultArea.text =
-                "Value  : " + parseFloat(valueNow).toFixed(2) + "\n" +
+                "数值：" + parseFloat(valueNow).toFixed(2) + "\n" +
                 "Now    : " + parseFloat(msNow).toFixed(4) + " ms\n" +
                 "Min    : " + parseFloat(msMin).toFixed(4) + " ms\n" +
                 "Max    : " + parseFloat(msMax).toFixed(4) + " ms\n" +
-                "Center : " + parseFloat(msCenter).toFixed(4) + " ms"
+                "中心：" + parseFloat(msCenter).toFixed(4) + " ms"
 
         valueBar.value = valueNow
     }
@@ -59,10 +59,10 @@ Item {
             mAppConf.updateParamDouble("app_ppm_conf.pulse_start", msMin)
             mAppConf.updateParamDouble("app_ppm_conf.pulse_end", msMax)
             mAppConf.updateParamDouble("app_ppm_conf.pulse_center", msCenter)
-            VescIf.emitStatusMessage("Start, End and Center Pulselengths Applied", true)
+            VescIf.emitStatusMessage("起始、结束和中心脉冲宽度已应用", true)
             mCommands.setAppConf()
         } else {
-            VescIf.emitMessageDialog("Apply Mapping",
+            VescIf.emitMessageDialog("应用映射",
                                      "Mapped values are not valid. Move the throttle to min, " +
                                      "then to max and then leave it in the center.",
                                      false,

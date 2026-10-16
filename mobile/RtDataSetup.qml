@@ -96,7 +96,7 @@ Item {
                     labelStep: 25
                     value: 0
                     unitText: "%"
-                    typeText: "Duty"
+                    typeText: "占空比"
                     nibColor: {nibColor = Utility.getAppHexColor("tertiary3")}
                     CustomGauge {
                         id: powerGauge
@@ -139,7 +139,7 @@ Item {
                 labelStep: maximumValue > 60 ? 20 : 10
                 value: 0
                 unitText: VescIf.useImperialUnits() ? "mph" : "km/h"
-                typeText: "Speed"
+                typeText: "速度"
 
                 Image {
                     anchors.centerIn: parent
@@ -734,7 +734,7 @@ Item {
             var efficiencyNow = Math.max( Math.min(values.current_in * values.v_in/Math.max(Math.abs(values.speed * 3.6 * impFact), 1e-6) , 60) , -60)
             efficiency_lpf = (1.0 - alpha) * efficiency_lpf + alpha *  efficiencyNow
             efficiencyGauge.value = efficiency_lpf
-            efficiencyGauge.unitText = useImperial ? "WH/MI" : "WH/KM"
+            efficiencyGauge.unitText = useImperial ? "Wh/mi" : "Wh/km"
             if( (wh_km_total / impFact) < 999.0) {
                 consumValLabel.text = parseFloat(wh_km_total / impFact).toFixed(1)
             } else {

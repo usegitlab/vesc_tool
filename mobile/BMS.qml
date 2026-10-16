@@ -182,7 +182,7 @@ Item {
                             var tLabels = []
 
                             if (mVal.data_version === 1) {
-                                tLabels = ["IC", "Cell Min", "Cell Max", "Mosfet", "Ambient"]
+                                tLabels = ["IC", "最低电芯电压", "最高电芯电压", "Mosfet", "环境"]
                             }
 
                             for (var i = 0;i < tempNum;i++) {
@@ -361,19 +361,19 @@ Item {
                     "Min-Max-Diff : " + parseFloat(cvMin).toFixed(3) + " - " +
                                         parseFloat(cvMax).toFixed(3) + " - " +
                                         parseFloat(cvMax - cvMin).toFixed(3) + " V\n" +
-                    "V Tot        : " + parseFloat(val.v_tot).toFixed(2) + " V\n" +
-                    "V Charge     : " + parseFloat(val.v_charge).toFixed(2) + " V\n" +
+                    "总电压：" + parseFloat(val.v_tot).toFixed(2) + " V\n" +
+                    "充电电压：" + parseFloat(val.v_charge).toFixed(2) + " V\n" +
                     "I In         : " + parseFloat(val.i_in_ic).toFixed(2) + " A\n" +
-                    "Ah Cnt       : " + parseFloat(val.ah_cnt).toFixed(3) + " Ah\n" +
-                    "Wh Cnt       : " + parseFloat(val.wh_cnt).toFixed(2) + " Wh\n" +
+                    "安时计数：" + parseFloat(val.ah_cnt).toFixed(3) + " Ah\n" +
+                    "瓦时计数：" + parseFloat(val.wh_cnt).toFixed(2) + " Wh\n" +
                     "Power        : " + parseFloat(val.v_tot * val.i_in_ic).toFixed(2) + " W\n" +
                     "Hum (temp)   : " + parseFloat(val.humidity).toFixed(1) + " %" +
                                         " (" + parseFloat(val.temp_hum_sensor).toFixed(1) + " \u00B0C)\n" +
                     "Pressure     : " + parseFloat(val.pressure).toFixed(0) + " Pa\n" +
-                    "SoC          : " + parseFloat(val.soc * 100).toFixed(1) + " %\n" +
-                    "Ah Chg Tot   : " + parseFloat(val.ah_cnt_chg_total).toFixed(3) + " Ah\n" +
-                    "Ah Dis Tot   : " + parseFloat(val.ah_cnt_dis_total).toFixed(3) + " Ah\n" +
-                    "Status       : " + val.status
+                    "电量：" + parseFloat(val.soc * 100).toFixed(1) + " %\n" +
+                    "总充电安时：" + parseFloat(val.ah_cnt_chg_total).toFixed(3) + " Ah\n" +
+                    "总放电安时：" + parseFloat(val.ah_cnt_dis_total).toFixed(3) + " Ah\n" +
+                    "状态：" + val.status
 
             cellCanvas.requestPaint()
             tempCanvas.requestPaint()

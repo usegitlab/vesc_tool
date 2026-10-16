@@ -43,7 +43,7 @@ Item {
     function updateDisplay() {
         resultArea.text =
                 "Offset   : " + parseFloat(mOffset).toFixed(1) + "\n" +
-                "Ratio    : " + parseFloat(mRatio).toFixed(1) + "\n" +
+                "比例：" + parseFloat(mRatio).toFixed(1) + "\n" +
                 "Inverted : " + mInverted
     }
 
@@ -52,8 +52,8 @@ Item {
             return true
         } else {
             VescIf.emitMessageDialog(
-                        "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "连接错误",
+                        "VESC 未连接，请连接后再运行检测。",
                         false, false)
             return false
         }
@@ -145,7 +145,7 @@ Item {
                         mMcConf.updateParamDouble("foc_encoder_ratio", mRatio)
                         mMcConf.updateParamBool("foc_encoder_inverted", mInverted)
 
-                        VescIf.emitStatusMessage("Encoder Parameters Applied", true)
+                        VescIf.emitStatusMessage("编码器参数已应用", true)
 
                         dialog.close()
                     }
@@ -192,12 +192,12 @@ Item {
 
         function onEncoderParamReceived(res) {
             if (res.offset > 1000.0) {
-                VescIf.emitStatusMessage("Encoder not enabled in firmware", false)
-                VescIf.emitMessageDialog("Error",
-                                         "Encoder support is not enabled. Enable it in the general settings.",
+                VescIf.emitStatusMessage("固件中未启用编码器", false)
+                VescIf.emitMessageDialog("错误",
+                                         "编码器支持未启用，请在常规设置中启用。",
                                          false, false)
             } else {
-                VescIf.emitStatusMessage("Encoder Result Received", true)
+                VescIf.emitStatusMessage("已收到编码器结果", true)
                 mOffset = res.offset
                 mRatio = res.ratio
                 mInverted = res.inverted

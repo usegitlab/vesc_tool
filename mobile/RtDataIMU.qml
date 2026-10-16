@@ -12,19 +12,19 @@ Item {
     height: rect.height
     function updateText(values) {
         valText1.text =
-                "Roll   : " + (values.roll * 57.2958).toFixed(3) + "\n" +
-                "Acc X  : " + values.accX.toFixed(3) + "\n" +
-                "Gyro X : " + values.gyroX.toFixed(3)
+                "滚转角：" + (values.roll * 57.2958).toFixed(3) + "\n" +
+                "加速度 X：" + values.accX.toFixed(3) + "\n" +
+                "陀螺仪 X：" + values.gyroX.toFixed(3)
 
         valText2.text =
                 "Pitch  : " + (values.pitch * 57.2958).toFixed(3) + "\n" +
-                "Acc Y  : " + values.accY.toFixed(3) + "\n" +
-                "Gyro Y : " + values.gyroY.toFixed(3)
+                "加速度 Y：" + values.accY.toFixed(3) + "\n" +
+                "陀螺仪 Y：" + values.gyroY.toFixed(3)
 
         valText3.text =
                 "yaw    : " + (values.yaw * 57.2958).toFixed(3) + "\n" +
-                "Acc Z  : " + values.accZ.toFixed(3) + "\n" +
-                "Gyro Z : " + values.gyroZ.toFixed(3)
+                "加速度 Z：" + values.accZ.toFixed(3) + "\n" +
+                "陀螺仪 Z：" + values.gyroZ.toFixed(3)
     }
 
     Rectangle {
@@ -48,7 +48,7 @@ Item {
                 Layout.preferredWidth: parent.width/3
                 text: "Roll   : 0.00\n" +
                       "Acc X  : 0.00\n" +
-                      "Gyro X : 0.00"
+                      "陀螺仪 X：0.00"
             }
 
             Text {
@@ -59,7 +59,7 @@ Item {
                 Layout.preferredWidth: parent.width/3
                 text: "Pitch  : 0.00\n" +
                       "Acc Y  : 0.00\n" +
-                      "Gyro Y : 0.00"
+                      "陀螺仪 Y：0.00"
             }
 
             Text {
@@ -70,7 +70,7 @@ Item {
                 Layout.preferredWidth: parent.width/3
                 text: "Yaw    : 0.00\n" +
                       "Acc Z  : 0.00\n" +
-                      "Gyro Z : 0.00"
+                      "陀螺仪 Z：0.00"
             }
 
             Rectangle {

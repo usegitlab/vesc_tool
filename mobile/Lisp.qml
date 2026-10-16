@@ -321,7 +321,7 @@ Item {
                     Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignRight
-                        text: currentFilePath.length > 0 ? currentFilePath : "Unnamed"
+                        text: currentFilePath.length > 0 ? currentFilePath : "未命名"
                         elide: Text.ElideLeft
                     }
                 }
@@ -404,8 +404,8 @@ Item {
                                         fileDialogLoad.open()
                                     } else {
                                         VescIf.emitMessageDialog(
-                                                    "File Permissions",
-                                                    "Unable to request file system permission.",
+                                                    "文件权限",
+                                                    "无法请求文件系统权限。",
                                                     false, false)
                                     }
                                 }
@@ -419,8 +419,8 @@ Item {
                                         fileDialogSave.open()
                                     } else {
                                         VescIf.emitMessageDialog(
-                                                    "File Permissions",
-                                                    "Unable to request file system permission.",
+                                                    "文件权限",
+                                                    "无法请求文件系统权限。",
                                                     false, false)
                                     }
                                 }
@@ -584,7 +584,7 @@ Item {
                 id: statsTabItem
 
                 Label {
-                    text: "CPU: " + lispCpuUse.toFixed(1) + "%"
+                    text: "CPU：" + lispCpuUse.toFixed(1) + "%"
                 }
 
                 ProgressBar {
@@ -596,7 +596,7 @@ Item {
                 }
 
                 Label {
-                    text: "Heap: " + lispHeapUse.toFixed(1) + "%"
+                    text: "堆内存：" + lispHeapUse.toFixed(1) + "%"
                 }
 
                 ProgressBar {
@@ -608,7 +608,7 @@ Item {
                 }
 
                 Label {
-                    text: "Memory: " + lispMemUse.toFixed(1) + "%"
+                    text: "内存：" + lispMemUse.toFixed(1) + "%"
                 }
 
                 ProgressBar {
@@ -702,8 +702,8 @@ Item {
 
         function onLispRunningResRx(ok) {
             if (!ok) {
-                VescIf.emitMessageDialog("Start/Stop LispBM",
-                                         "Start/Stop LispBM failed. Did you forget to upload the code?",
+                VescIf.emitMessageDialog("启动/停止 LispBM",
+                                         "启动/停止 LispBM 失败，是否忘记上传代码？",
                                          false, false)
             }
         }

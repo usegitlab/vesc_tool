@@ -252,7 +252,7 @@ Item {
 
                                 onClicked: {
                                     VescIf.emitMessageDialog(
-                                                "Firmware Changelog",
+                                                "固件更新日志",
                                                 Utility.fwChangeLog(),
                                                 true)
                                 }
@@ -314,8 +314,8 @@ Item {
                                     fileDialog.open()
                                 } else {
                                     VescIf.emitMessageDialog(
-                                                "File Permissions",
-                                                "Unable to request file system permission.",
+                                                "文件权限",
+                                                "无法请求文件系统权限。",
                                                 false, false)
                                 }
                             }
@@ -673,7 +673,7 @@ Item {
 
         Text {
             color: Utility.getAppHexColor("lightText")
-            text: "This is going do download a few 100 MB of old firmwares. Continue?"
+            text: "这将下载数百 MB 的旧固件，继续吗？"
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             wrapMode: Text.WordWrap
@@ -744,7 +744,7 @@ Item {
     function uploadFw(fwdCan) {
         if (!VescIf.isPortConnected()) {
             VescIf.emitMessageDialog(
-                        "Connection Error",
+                        "连接错误",
                         "Not connected to device. Please connect first.",
                         false)
             return
@@ -752,13 +752,13 @@ Item {
 
         var msg = "CAREFUL: If you continue you will lose your package and all settings, are you sure "
                   "you know what you're doing?\n\n" +
-                  "This will upload new firmware to the connected device"
-        var msgBl = "You are about to upload a bootloader to the connected device"
+                  "这将向已连接设备上传新固件"
+        var msgBl = "您即将向已连接设备上传引导程序"
 
         var msgEnd = "."
         if (fwdCan) {
             msgEnd = ", as well as all devices found on the CAN-bus. \n\n" +
-                    "WARNING: The upload all function should ONLY be used if all " +
+                    "警告：仅当所有设备" +
                     "devices on the CAN-bus have the same hardware version. If that " +
                     "is not the case, you must upload firmware to the devices individually."
         }
@@ -771,27 +771,27 @@ Item {
         if (swipeView.currentIndex == 0) {
             if (fwItems.rowCount() === 0) {
                 VescIf.emitMessageDialog(
-                            "Upload Error",
-                            "This version of VESC Tool does not include any firmware " +
+                            "上传错误",
+                            "此版本的 VESC Tool 不包含固件" +
                             "for your hardware version. You can either " +
                             "upload a custom file or look for a later version of VESC " +
-                            "Tool that might support your hardware.",
+                            "支持您硬件的工具。",
                             false)
                 return;
             }
 
             if (hwItems.rowCount() === 1) {
-                uploadDialog.title = "Warning"
+                uploadDialog.title = "警告"
 
                 if (VescIf.getFwSupportsConfiguration()) {
                     msg += "\n\n" +
                             "Uploading new firmware will clear all settings in the VESC firmware. You can make " +
                             "a backup of the settings from the connection page and restore them after the " +
                             "update if you'd like (if you haven't done the backup already). " +
-                            "Do you want to continue with the update, or cancel and do the backup first?"
+                            "是否继续更新，还是取消并先进行备份？"
                 } else {
                     msg += "\n\n" +
-                            "Uploading new firmware will clear all settings on your device " +
+                            "上传新固件将清除设备上的所有设置" +
                             "and you have to do the configuration again. Do you want to " +
                             "continue?"
                 }
@@ -799,40 +799,40 @@ Item {
                 uploadDialogLabel.text = msg
                 uploadDialog.open()
             } else {
-                uploadDialog.title = "Warning"
+                uploadDialog.title = "警告"
                 uploadDialogLabel.text =
                         msg + "\n\n" +
-                        "Uploading firmware for the wrong hardware version " +
-                        "WILL damage the hardware. Are you sure that you have " +
+                        "正在为错误的硬件版本上传固件" +
+                        "将损坏硬件，请确认您已" +
                         "chosen the correct hardware version?"
                 uploadDialog.open()
             }
         } else if (swipeView.currentIndex == 1) {
             if (customFwText.text.length > 0) {
-                uploadDialog.title = "Warning"
+                uploadDialog.title = "警告"
                 uploadDialogLabel.text =
                         msg + "\n\n" +
-                        "Uploading firmware for the wrong hardware version " +
-                        "WILL damage the hardware. Are you sure that you have " +
+                        "正在为错误的硬件版本上传固件" +
+                        "将损坏硬件，请确认您已" +
                         "chosen the correct hardware version?"
                 uploadDialog.open()
             } else {
                 VescIf.emitMessageDialog(
-                            "Error",
+                            "错误",
                             "Please select a file",
                             false, false)
             }
         } else if (swipeView.currentIndex == 2) {
             if (blItems.rowCount() === 0) {
                 VescIf.emitMessageDialog(
-                            "Upload Error",
-                            "This version of VESC Tool does not include any bootloader " +
+                            "上传错误",
+                            "此版本的 VESC Tool 不包含引导程序" +
                             "for your hardware version.",
                             false)
                 return;
             }
 
-            uploadDialog.title = "Warning"
+            uploadDialog.title = "警告"
 
             var msgBl2 = ""
             if (!mCommands.getLimitedSupportsEraseBootloader()) {
@@ -842,23 +842,23 @@ Item {
 
             uploadDialogLabel.text =
                     msgBl + "\n\n" + msgBl2 +
-                    "Do you want to continue?"
+                    "是否继续？"
             uploadDialog.open()
         } else if (swipeView.currentIndex === 3) {
             if (archFwItems.rowCount() === 0) {
                 VescIf.emitMessageDialog(
-                            "Upload Error",
-                            "This version of VESC Tool does not include the selected firmware " +
+                            "上传错误",
+                            "此版本的 VESC Tool 不包含所选固件" +
                             "for your hardware version. You can try to update the archive and see " +
                             "if it has been added since your last update.",
                             false)
                 return;
             }
 
-            uploadDialog.title = "Warning"
+            uploadDialog.title = "警告"
 
             msg += "\n\n" +
-                    "Uploading new firmware will clear all settings on your device " +
+                    "上传新固件将清除设备上的所有设置" +
                     "and you have to do the configuration again. Do you want to " +
                     "continue?"
 
@@ -908,11 +908,11 @@ Item {
             if (res) {
                 if(isBootloader) {
                     VescIf.emitMessageDialog("Bootloader Finished",
-                                             "Bootloader upload is done.",
+                                             "引导程序上传完成。",
                                              true, false)
                 } else {
                     VescIf.disconnectPort()
-                    VescIf.emitMessageDialog("Warning",
+                    VescIf.emitMessageDialog("警告",
                                              "The firmware upload is done. The device should reboot automatically within 10 seconds. Do " +
                                              "NOT remove power before the reboot is done as that can brick the CPU and requires a programmer " +
                                              "to fix.",
@@ -970,7 +970,7 @@ Item {
         }
 
         versionText.text =
-                "FW   : v" + params.major + "." + (1e5 + params.minor + '').slice(-2) + fwNameStr + testFwStr + "\n" +
+                "固件：v" + params.major + "." + (1e5 + params.minor + '').slice(-2) + fwNameStr + testFwStr + "\n" +
                 "HW   : " + params.hw + "\n" +
                 "UUID : " + Utility.uuid2Str(params.uuid, false)
     }

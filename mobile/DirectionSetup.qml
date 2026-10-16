@@ -53,7 +53,7 @@ Item {
     function setCanDevs(canDevs) {
         canIdModel.clear()
         if (!mCommands.getSendCan() && Utility.isConnectedToHwVesc(VescIf)) {
-            canIdModel.append({"name": "This VESC",
+            canIdModel.append({"name": "此 VESC",
                                   "canId": mAppConf.getParamInt("controller_id"),
                                   "isCan": false,
                                   "isInv": Utility.getInvertDirection(VescIf, -1)})

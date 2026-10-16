@@ -80,8 +80,8 @@ Item {
 //                    folderDialog.open()
                 } else {
                     VescIf.emitMessageDialog(
-                                "File Permissions",
-                                "Unable to request file system permission.",
+                                "文件权限",
+                                "无法请求文件系统权限。",
                                 false, false)
                 }
             }
@@ -149,7 +149,7 @@ Item {
             onClicked: {
                 if (checked && !VescIf.isPortConnected()) {
                     VescIf.emitMessageDialog("Log Data",
-                                             "You must be connected to the VESC in order to log data.",
+                                             "必须连接到 VESC 才能记录数据。",
                                              false, false)
                     checked = false
                     return
@@ -164,7 +164,7 @@ Item {
                         VescIf.emitMessageDialog("Logging Started",
                                                  "Motor data together with your location is now being logged to:\n\n" +
                                                  VescIf.rtLogFilePath() + "\n\n" +
-                                                 "You can connect your device to a computer and transfer the file to it for " +
+                                                 "您可以将设备连接到电脑并传输文件" +
                                                  "analysis in the desktop version of VESC Tool (under Data Analysis->Log Analysis).",
                                                  true, false)
                     } else {

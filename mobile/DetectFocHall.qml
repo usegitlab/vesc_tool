@@ -57,8 +57,8 @@ Item {
             return true
         } else {
             VescIf.emitMessageDialog(
-                        "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "连接错误",
+                        "VESC 未连接，请连接后再运行检测。",
                         false, false)
             return false
         }
@@ -147,7 +147,7 @@ Item {
                     Layout.fillWidth: true
                     onClicked: {
                         if (table.length != 8) {
-                            VescIf.emitMessageDialog("Apply Error",
+                            VescIf.emitMessageDialog("应用错误",
                                                      "Hall table is empty.",
                                                      false, false)
                             return
@@ -204,9 +204,9 @@ Item {
 
         function onFocHallTableReceived(hall_table, res) {
             if (res !== 0) {
-                VescIf.emitStatusMessage("Bad FOC Hall Detection Result Received", false)
-                VescIf.emitMessageDialog("Bad FOC Hall Detection Result Received",
-                                         "Could not detect hall sensors. Make sure that everything " +
+                VescIf.emitStatusMessage("收到错误 FOC 霍尔检测结果", false)
+                VescIf.emitMessageDialog("收到错误 FOC 霍尔检测结果",
+                                         "无法检测霍尔传感器，请确保所有连接" +
                                          "is connected properly.",
                                          false, false)
             } else {

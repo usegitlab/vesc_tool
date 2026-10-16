@@ -118,16 +118,16 @@ Item {
                     id: usageModel
                     property string iconPath: {iconPath = "qrc" + Utility.getThemePath() + "icons/"}
                     Component.onCompleted: {
-                        append({name: "Generic", usageImg:iconPath + "motor.png",
+                        append({name: "通用", usageImg:iconPath + "motor.png",
                                    duty_start: 1.0, hfi_start: false, fault_stop_ms: 500,
                                    bms_limit_mode: 3, batt_cut_cautious: true})
-                        append({name: "E-Skate", usageImg:"qrc:/res/images/esk8.jpg",
+                        append({name: "电动滑板", usageImg:"qrc:/res/images/esk8.jpg",
                                    duty_start: 0.85, hfi_start: true, fault_stop_ms: 50,
                                    bms_limit_mode: 3, batt_cut_cautious: true})
-                        append({name: "Balance", usageImg:iconPath + "EUC-96.png",
+                        append({name: "平衡", usageImg:iconPath + "EUC-96.png",
                                    duty_start: 1.0, hfi_start: false, fault_stop_ms: 50,
                                    bms_limit_mode: 0, batt_cut_cautious: false})
-                        append({name: "Propeller", usageImg:"qrc:/res/images/propeller.jpg",
+                        append({name: "螺旋桨", usageImg:"qrc:/res/images/propeller.jpg",
                                    duty_start: 1.0, hfi_start: false, fault_stop_ms: 500,
                                    bms_limit_mode: 3, batt_cut_cautious: true})
                     }
@@ -446,7 +446,7 @@ Item {
                                 realFrom: 0
                                 realTo: 50000
                                 realValue: 1500
-                                prefix: "Sensorless ERPM: "
+                                prefix: "无感 ERPM："
                             }
 
                             DoubleSpinBox {
@@ -521,7 +521,7 @@ Item {
                                 realFrom: 0
                                 realTo: -9999
                                 realValue: 0
-                                prefix: "Battery Current Regen: "
+                                prefix: "电池回馈电流："
                                 suffix: " A"
                             }
 
@@ -533,7 +533,7 @@ Item {
                                 realFrom: 0
                                 realTo: 9999
                                 realValue: 0
-                                prefix: "Battery Current Max: "
+                                prefix: "电池最大电流："
                                 suffix: " A"
                             }
                         }
@@ -653,7 +653,7 @@ Item {
                 property int buttonWidth: 120
 
                 Repeater {
-                    model: ["Usage", "Motor", "Battery", "Setup", "Direction"]
+                    model: ["使用情况", "Motor", "电池", "Setup", "方向"]
                     TabButton {
                         text: modelData
                         width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
@@ -706,7 +706,7 @@ Item {
                             if (VescIf.isPortConnected()) {
                                 detectDialog.open()
                             } else {
-                                VescIf.emitMessageDialog("Detect Motors",
+                                VescIf.emitMessageDialog("检测电机",
                                                          "Not connected to the VESC. Please connect in order to run detection.",
                                                          false, false)
                             }
@@ -745,7 +745,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             wrapMode: Text.WordWrap
-            text: "Would you like to restore this VESC, and all VESCs on the CAN-bus (if any), " +
+            text: "是否恢复此 VESC 及 CAN 总线上的所有 VESC（如有）" +
                   "to their default settings before proceeding?"
         }
 
@@ -790,7 +790,7 @@ Item {
             text: "Warning: This selection determines the recommended max current for your motor based on heat dissipation. " +
                   "Selecting a motor here that is significantly larger than your motor is likely to destroy your motor " +
                   "during detection. It is important to choose a motor size similar to the motor you are using. " +
-                  "Are you sure that your motor selection is within range?"
+                  "您确定电机选择在范围内吗？"
         }
 
         onAccepted: {
@@ -928,7 +928,7 @@ Item {
                                                 sensorlessBox.realValue)
 
                 var resDetect = false
-                if (res.startsWith("Success!")) {
+                if (res.startsWith("成功！")) {
                     resDetect = true
 
                     Utility.setBatteryCutCanFromCurrentConfig(VescIf, canDevs, usageList.currentItem.modelData.batt_cut_cautious)
@@ -963,7 +963,7 @@ Item {
                     updateButtonText()
                 }
 
-                resultDialog.title = "Detection Result"
+                resultDialog.title = "检测结果"
                 resultLabel.text = res
                 resultDialog.open()
             }
@@ -1021,17 +1021,17 @@ Item {
 
     function updateButtonText() {
         if (stackLayout.currentIndex == (stackLayout.count - 1)) {
-            nextButton.text = "Finish"
+            nextButton.text = "完成"
         } else if (stackLayout.currentIndex == (stackLayout.count - 2)) {
-            nextButton.text = "Run Detection"
+            nextButton.text = "运行检测"
         } else {
             nextButton.text = "Next"
         }
 
         if (stackLayout.currentIndex == 0) {
-            prevButton.text = "Cancel"
+            prevButton.text = "取消"
         } else {
-            prevButton.text = "Previous"
+            prevButton.text = "上一步"
         }
     }
 

@@ -55,7 +55,7 @@ Item {
             realTo: 30.0
             realValue: 10.0
             decimals: 1
-            prefix: "Time: "
+            prefix: "时间："
             suffix: " s"
         }
 
@@ -177,7 +177,7 @@ Item {
                             "Pairing timed out. Make sure to put your device (e.g. VESC Wand) " +
                             "in pairing mode before the time runs out." +
                             "<br><br>" +
-                            "To put a VESC-compatible Remote in " +
+                            "将兼容 VESC 的遥控器设置为" +
                             "pairing mode, just switch it on using any of the buttons. Then it " +
                             "will enter pairing mode if it was switched off previously.",
                             false, false)

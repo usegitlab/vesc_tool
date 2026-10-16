@@ -298,7 +298,7 @@ Item {
                 var logoPath = " "
                 if (params.major === -1){
                     devicePath = theme + "icons/Help-96.png"
-                    name = "Unknown"
+                    name = "未知"
                 } else if (params.hwTypeStr() === "VESC") { //is a motor
                     devicePath = theme + "icons/motor_side.png"
                     if (params.fwName.length !== 0) {
@@ -369,7 +369,7 @@ Item {
 
                 selectDeviceInList()
             } else {
-                VescIf.emitStatusMessage("Device not connected", false)
+                VescIf.emitStatusMessage("设备未连接", false)
             }
         }
     }

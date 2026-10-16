@@ -96,7 +96,7 @@ Item {
                     tcpLocalAddress.text = "IP(s)"
                 }
 
-                tcpRemoteAddress.text = "Connected Client"
+                tcpRemoteAddress.text = "已连接客户端"
 
                 if (VescIf.tcpServerIsClientConnected()) {
                     tcpRemoteAddress.text += "\n" + VescIf.tcpServerClientIp()

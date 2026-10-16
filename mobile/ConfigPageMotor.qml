@@ -309,8 +309,8 @@ Item {
                                 fileDialogSave.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -346,8 +346,8 @@ Item {
                                 fileDialogLoad.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -386,7 +386,7 @@ Item {
         // TODO: For some reason this does not work
         function onMcConfigCheckResult(paramsNotSet) {
             if (paramsNotSet.length > 0) {
-                var notUpdated = "The following parameters were truncated or not updated. That can happen because " +
+                var notUpdated = "以下参数被截断或未更新，可能是因为" +
                                 "they were set outside their allowed limits or because the write failed. In case the " +
                                 "write failed you can try writing them again:\n"
 

@@ -181,7 +181,7 @@ ApplicationWindow {
             Button {
                 id: reconnectButton
                 Layout.fillWidth: true
-                text: connected ? "Disconnect" : "连接"
+                text: connected ? "断开" : "连接"
                 flat: true
                 onClicked: {
                     if (connected) {
@@ -217,7 +217,7 @@ ApplicationWindow {
                 flat: true
                 onClicked: {
                     VescIf.emitMessageDialog(
-                                "About",
+                                "关于",
                                 Utility.aboutText(),
                                 true, true)
                 }
@@ -532,7 +532,7 @@ ApplicationWindow {
 
                 Repeater {
                     id: rep
-                    model: ["Start", "RT Data", "BMS", "Profiles", "Terminal", "LispBM"]
+                    model: ["开始", "实时数据", "BMS", "配置文件", "终端", "LispBM"]
 
                     TabButton {
                         text: modelData
@@ -1009,12 +1009,12 @@ ApplicationWindow {
                 tabBar.enabled = false
             }
 
-            appUiObj = Qt.createQmlObject(VescIf.qmlApp(), uiApp, "AppUi")
+            appUiObj = Qt.createQmlObject(VescIf.qmlApp(), uiApp, "应用界面")
             mainSwipeView.insertItem(1, uiAppPage)
             tabBar.insertItem(1, uiAppButton)
             uiAppPage.visible = true
 
-            uiAppButton.text = "AppUi"
+            uiAppButton.text = "应用界面"
             if (appUiObj.tabTitle) {
                 uiAppButton.text = appUiObj.tabTitle
             }
@@ -1230,10 +1230,10 @@ ApplicationWindow {
                 verticalAlignment: Text.AlignVCenter
                 wrapMode: Text.WordWrap
                 text:
-                    "The hardware you are connecting to contains code that will alter the " +
+                    "您连接的硬件包含将修改" +
                     "user interface of VESC Tool. This code has not been verified by the " +
                     "authors of VESC Tool and could contain bugs and security problems. \n\n" +
-                    "Do you want to load this custom user interface?"
+                    "是否加载此自定义用户界面？"
             }
 
             CheckBox {

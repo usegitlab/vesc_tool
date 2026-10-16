@@ -46,10 +46,10 @@ Item {
         var speedUnit = useImperial ? "mph\n" : "km/h\n"
 
         infoText.text =
-                "Speed Forward   : " + parseFloat(cfg.erpm_or_speed_max * 3.6 * impFact).toFixed(1) + speedUnit +
-                "Speed Reverse   : " + parseFloat(-cfg.erpm_or_speed_min * 3.6 * impFact).toFixed(1) + speedUnit +
-                "Current Accel   : " + parseFloat(cfg.current_max_scale * 100).toFixed(0) + " %\n" +
-                "Current Brake   : " + parseFloat(cfg.current_min_scale * 100).toFixed(0) + " %"
+                "正向速度：" + parseFloat(cfg.erpm_or_speed_max * 3.6 * impFact).toFixed(1) + speedUnit +
+                "反向速度：" + parseFloat(-cfg.erpm_or_speed_min * 3.6 * impFact).toFixed(1) + speedUnit +
+                "加速电流：" + parseFloat(cfg.current_max_scale * 100).toFixed(0) + " %\n" +
+                "制动电流：" + parseFloat(cfg.current_min_scale * 100).toFixed(0) + " %"
 
         if (cfg.watt_max < 1400000 || cfg.watt_min > -1400000) {
             infoText.text += "\n" +
@@ -193,7 +193,7 @@ Item {
                             verticalAlignment: Text.AlignVCenter
                             anchors.fill: parent
                             wrapMode: Text.WordWrap
-                            text: "This is going to apply this profile permanently, even after reboot. Are " +
+                            text: "这将永久应用此配置，即使重启后也有效。" +
                                   "you sure?"
                         }
 

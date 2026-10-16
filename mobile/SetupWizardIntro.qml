@@ -285,15 +285,15 @@ Item {
 
     function updateButtonText() {
         if (stackLayout.currentIndex == (stackLayout.count - 1)) {
-            nextButton.text = "Finish"
+            nextButton.text = "完成"
         } else {
             nextButton.text = "Next"
         }
 
         if (stackLayout.currentIndex == 0) {
-            prevButton.text = "Cancel"
+            prevButton.text = "取消"
         } else {
-            prevButton.text = "Previous"
+            prevButton.text = "上一步"
         }
 
         updateButtonsEnabled()

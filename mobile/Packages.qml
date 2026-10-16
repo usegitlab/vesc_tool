@@ -200,8 +200,8 @@ Item {
                         enableDialog()
 
                         if (resLisp && resQml) {
-                            VescIf.emitMessageDialog("Uninstall Package",
-                                                     "Uninstallation Done!",
+                            VescIf.emitMessageDialog("卸载包",
+                                                     "卸载完成！",
                                                      true, false)
                         }
                     }
@@ -230,8 +230,8 @@ Item {
                                 fileDialogLoad.open()
                             } else {
                                 VescIf.emitMessageDialog(
-                                            "File Permissions",
-                                            "Unable to request file system permission.",
+                                            "文件权限",
+                                            "无法请求文件系统权限。",
                                             false, false)
                             }
                         }
@@ -357,7 +357,7 @@ Item {
                 Layout.fillWidth: true
                 font.bold: true
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: "Warning: This package is NOT compatble with the connected device. " +
+                text: "警告：此包与已连接设备不兼容。" +
                       "Install it only if you know what you are doing!"
             }
 

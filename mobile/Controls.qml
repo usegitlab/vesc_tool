@@ -429,7 +429,7 @@ Item {
 
                 Repeater {
                     id: rep
-                    model: ["Current", "Duty", "RPM", "Position"]
+                    model: ["电流", "占空比", "RPM", "Position"]
 
                     TabButton {
                         text: modelData

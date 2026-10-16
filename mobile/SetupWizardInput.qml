@@ -52,13 +52,13 @@ Item {
             mCanIdAtStart = mCommands.getCanSendId()
 
             if (mCommands.getSendCan()) {
-                canIdModel.append({"name": "This VESC (CAN FWD)",
+                canIdModel.append({"name": "此 VESC (CAN 转发)",
                                       "canId": mAppConf.getParamInt("controller_id"),
                                       "isCan": true})
                 dialog.open()
                 canScanBar.value = 100
             } else {
-                canIdModel.append({"name": "This VESC",
+                canIdModel.append({"name": "此 VESC",
                                       "canId": mAppConf.getParamInt("controller_id"),
                                       "isCan": false})
                 dialog.open()
@@ -568,7 +568,7 @@ Item {
 
                                 if (apptype === 4) {
                                     // PPM and UART
-                                    paramsConf.addSeparator("General")
+                                    paramsConf.addSeparator("常规")
                                     paramsConf.addEditorApp("app_ppm_conf.ctrl_type")
                                     paramsConf.addEditorApp("app_ppm_conf.median_filter")
                                     paramsConf.addEditorApp("app_ppm_conf.safe_start")
@@ -583,7 +583,7 @@ Item {
                                     paramsConf.addEditorApp("app_ppm_conf.tc_max_diff")
                                 } else if (apptype === 3 || apptype === 6) {
                                     // NRF nunchuk or nyko kama
-                                    paramsConf.addSeparator("General")
+                                    paramsConf.addSeparator("常规")
                                     paramsConf.addEditorApp("app_chuk_conf.ctrl_type")
                                     paramsConf.addEditorApp("app_chuk_conf.ramp_time_pos")
                                     paramsConf.addEditorApp("app_chuk_conf.ramp_time_neg")
@@ -597,7 +597,7 @@ Item {
                                     paramsConf.addEditorApp("app_chuk_conf.tc_max_diff")
                                 } else if (apptype === 5) {
                                     // ADC and UART
-                                    paramsConf.addSeparator("General")
+                                    paramsConf.addSeparator("常规")
                                     paramsConf.addEditorApp("app_adc_conf.ctrl_type")
                                     paramsConf.addEditorApp("app_adc_conf.use_filter")
                                     paramsConf.addEditorApp("app_adc_conf.safe_start")
@@ -661,7 +661,7 @@ Item {
             anchors.fill: parent
             wrapMode: Text.WordWrap
             text:
-                "You have chosen NRF input, which requires pairing. To start the " +
+                "您已选择 NRF 输入，需要配对。" +
                 "pairing process, click ok and then switch on your remote. This " +
                 "will put the VESC in pairing mode for 10 seconds. You can restart " +
                 "the pairing process with the START button in the NRF Pairing box if " +
@@ -675,15 +675,15 @@ Item {
 
     function updateButtonText() {
         if (stackLayout.currentIndex == (stackLayout.count - 1)) {
-            nextButton.text = "Finish"
+            nextButton.text = "完成"
         } else {
             nextButton.text = "Next"
         }
 
         if (stackLayout.currentIndex == 0) {
-            prevButton.text = "Cancel"
+            prevButton.text = "取消"
         } else {
-            prevButton.text = "Previous"
+            prevButton.text = "上一步"
         }
     }
 

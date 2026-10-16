@@ -48,7 +48,7 @@ Item {
 
         txt +=
                 "Integrator limit : " + parseFloat(intLim).toFixed(2) + "\n" +
-                "BEMF Coupling    : " + parseFloat(coupling).toFixed(2) + "\n"
+                "反电动势耦合：" + parseFloat(coupling).toFixed(2) + "\n"
 
         if (hallRes == 0) {
             txt += "Detected hall sensor table:\n"
@@ -69,13 +69,13 @@ Item {
                 }
             }
         } else if (hallRes == -2) {
-            txt += "WS2811 enabled. Hall sensors cannot be used."
+            txt += "WS2811 已启用，霍尔传感器不可用。"
         } else if (hallRes == -3) {
-            txt += "Encoder enabled. Hall sensors cannot be used."
+            txt += "编码器已启用，霍尔传感器不可用。"
         } else if (hallRes == -4) {
-            txt += "Detected hall sensor table:"
+            txt += "检测到的霍尔传感器表："
         } else {
-            txt += "Unknown hall error: " + hallRes
+            txt += "未知霍尔错误：" + hallRes
         }
 
         resultArea.text = txt
@@ -86,8 +86,8 @@ Item {
             return true
         } else {
             VescIf.emitMessageDialog(
-                        "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "连接错误",
+                        "VESC 未连接，请连接后再运行检测。",
                         false, false)
             return false
         }
@@ -198,8 +198,8 @@ Item {
                     Layout.fillWidth: true
                     onClicked: {
                         if (!resultReceived) {
-                            VescIf.emitMessageDialog("Apply Detection Result",
-                                                     "Detection result not received. Make sure to run the detection first.",
+                            VescIf.emitMessageDialog("应用检测结果",
+                                                     "未收到检测结果，请确保先运行检测。",
                                                      false, false)
                             return
                         }
@@ -258,12 +258,12 @@ Item {
 
         function onBldcDetectReceived(param) {
             if (param.cycle_int_limit < 0.01 && param.bemf_coupling_k < 0.01) {
-                VescIf.emitStatusMessage("Bad Detection Result Received", false)
+                VescIf.emitStatusMessage("收到错误检测结果", false)
                 VescIf.emitMessageDialog("BLDC Detection",
-                                         "Bad Detection Result Received",
+                                         "收到错误检测结果",
                                          false, false)
             } else {
-                VescIf.emitStatusMessage("Detection Result Received", true)
+                VescIf.emitStatusMessage("已收到检测结果", true)
                 intLim = param.cycle_int_limit
                 coupling = param.bemf_coupling_k
                 hallTable = param.hall_table

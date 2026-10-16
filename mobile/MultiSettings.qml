@@ -37,7 +37,7 @@ Item {
     function openDialog() {
         if (!VescIf.isPortConnected()) {
             VescIf.emitMessageDialog("Multi Setup",
-                                     "You are not connected. Please connect first.", false, false)
+                                     "未连接，请先连接。", false, false)
             return
         }
 
@@ -51,7 +51,7 @@ Item {
         onTriggered: {
             dialog.open()
 
-            disableDialog("Scanning CAN-bus...")
+            disableDialog("正在扫描 CAN 总线...")
             canDevs = Utility.scanCanVescOnly(VescIf)
 
             if (!Utility.isConnectedToHwVesc(VescIf)) {
@@ -91,7 +91,7 @@ Item {
             paramListGeneral.addEditorMc("m_ntc_motor_beta")
 
             // Limits
-            paramListLimits.addSeparator("Current")
+            paramListLimits.addSeparator("电流")
             paramListLimits.addEditorMc("l_current_max")
             paramListLimits.addEditorMc("l_current_min")
             paramListLimits.addEditorMc("l_in_current_max")
@@ -102,18 +102,18 @@ Item {
             paramListLimits.addEditorMc("l_min_erpm")
             paramListLimits.addEditorMc("l_max_erpm")
 
-            paramListLimits.addSeparator("Voltage")
+            paramListLimits.addSeparator("电压")
             paramListLimits.addEditorMc("l_battery_cut_start")
             paramListLimits.addEditorMc("l_battery_cut_end")
 
-            paramListLimits.addSeparator("Temperature")
+            paramListLimits.addSeparator("温度")
             paramListLimits.addEditorMc("l_temp_fet_start")
             paramListLimits.addEditorMc("l_temp_fet_end")
             paramListLimits.addEditorMc("l_temp_motor_start")
             paramListLimits.addEditorMc("l_temp_motor_end")
             paramListLimits.addEditorMc("l_temp_accel_dec")
 
-            paramListLimits.addSeparator("Wattage")
+            paramListLimits.addSeparator("功率")
             paramListLimits.addEditorMc("l_watt_max")
             paramListLimits.addEditorMc("l_watt_min")
 
@@ -192,7 +192,7 @@ Item {
                                 text: "写入常规到全部"
 
                                 onClicked: {
-                                    disableDialog("Writing Parameters...")
+                                    disableDialog("正在写入参数...")
                                     workaroundTimerWriteGeneralAll.start()
                                 }
                                 Timer {
@@ -241,7 +241,7 @@ Item {
                                 Layout.fillWidth: true
                                 text: "写入限制到全部"
                                 onClicked: {
-                                    disableDialog("Writing Parameters...")
+                                    disableDialog("正在写入参数...")
                                     workaroundTimerWriteLimitsAll.start()
                                 }
                                 Timer {
@@ -297,7 +297,7 @@ Item {
                                 realFrom: 0.0
                                 realTo: 1000000.0
                                 realStepSize: 100.0
-                                prefix: "Ts: "
+                                prefix: "时间戳："
                                 suffix: " µS"
                             }
 
@@ -324,7 +324,7 @@ Item {
                                 text: "写入 FOC 到全部"
 
                                 onClicked: {
-                                    disableDialog("Writing Parameters...")
+                                    disableDialog("正在写入参数...")
                                     workaroundTimerWriteFOCAll.start()
                                 }
                                 Timer {
@@ -374,7 +374,7 @@ Item {
                                 text: "写入 BMS 到全部"
 
                                 onClicked: {
-                                    disableDialog("Writing Parameters...")
+                                    disableDialog("正在写入参数...")
                                     workaroundTimerWriteBMSAll.start()
                                 }
                                 Timer {
@@ -421,7 +421,7 @@ Item {
 
                 Repeater {
                     id: rep
-                    model: ["General", "Limits", "FOC", "BMS"]
+                    model: ["常规", "Limits", "FOC", "BMS"]
 
                     TabButton {
                         text: modelData
