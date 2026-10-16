@@ -21,9 +21,10 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Install NDK 23 (SDK already on runner)
+      - name: Install NDK 23
         run: |
-          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
+          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
+            "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
 
       - name: Install Qt 5.15.2 for Android (arm64)
@@ -33,18 +34,19 @@ jobs:
           host: 'linux'
           target: 'android'
           arch: 'android_arm64_v8a'
-          aqtversion: '==3.1.*'
-          py7zrversion: '>=0.20.0'
+          cache: true
+          extra: '--base https://ftp.fau.de/qtproject'
 
-      - name: Install Qt 5.15.2 host tools (gcc_64)
+      - name: Install Qt 5.15.2 host tools
         uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           host: 'linux'
           target: 'desktop'
           arch: 'gcc_64'
-          aqtversion: '==3.1.*'
+          cache: true
           set-env: 'false'
+          extra: '--base https://ftp.fau.de/qtproject'
 
       - name: Install build dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential libgl1-mesa-dev
@@ -52,14 +54,12 @@ jobs:
       - name: Build APK
         run: |
           mkdir -p build/android
-          # Qt5_DIR is set by jurplel/install-qt-action for android target
           $Qt5_DIR/bin/qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          # androiddeployqt must come from host tools
           $HOME/Qt/5.15.2/gcc_64/bin/androiddeployqt \
             --gradle \
             --no-gdbserver \
