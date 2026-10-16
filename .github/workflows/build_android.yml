@@ -13,20 +13,21 @@ jobs:
       options: --user root
 
     steps:
-      - name: Install git (required by checkout)
-        run: apt-get update -y && apt-get install -y git ca-certificates
+      - name: Install git and fix permissions
+        run: |
+          apt-get update -y
+          apt-get install -y git ca-certificates
+          git config --global --add safe.directory '*'
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
-      - name: Show environment
+      - name: Show Qt/Android environment
         run: |
-          qmake --version
-          echo "SDK: $ANDROID_SDK_ROOT"
-          echo "NDK: $ANDROID_NDK_ROOT"
-          ls $ANDROID_NDK_ROOT 2>/dev/null | head -5 || echo "NDK not set"
+          qmake --version || true
+          echo "SDK=$ANDROID_SDK_ROOT  NDK=$ANDROID_NDK_ROOT"
 
       - name: Build APK
         run: |
