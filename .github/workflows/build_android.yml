@@ -21,13 +21,14 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
 
-      - name: Install NDK 23
+      - name: Set up Android NDK
         run: |
-          SDK=/usr/local/lib/android/sdk
-          echo "y" | $SDK/cmdline-tools/latest/bin/sdkmanager \
-            "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" || true
-          echo "ANDROID_SDK_ROOT=$SDK"                    >> $GITHUB_ENV
-          echo "ANDROID_NDK_ROOT=$SDK/ndk/23.2.8568313"  >> $GITHUB_ENV
+          echo "Using pre-installed NDK: $ANDROID_NDK_HOME"
+          ls $ANDROID_NDK_HOME | head -5
+          echo "ANDROID_NDK_ROOT=$ANDROID_NDK_HOME" >> $GITHUB_ENV
+          # Install required platform + build tools
+          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
+            "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
 
       - name: Install Qt 5.15.2 for Android (multi-arch)
         run: |
