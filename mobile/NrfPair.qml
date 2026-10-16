@@ -71,7 +71,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Button {
-                text: "Help"
+                text: "帮助"
                 Layout.preferredWidth: 50
                 Layout.fillWidth: true
                 flat: true
@@ -86,7 +86,7 @@ Item {
 
             Button {
                 id: startButton
-                text: "Start"
+                text: "开始"
                 Layout.preferredWidth: 50
                 Layout.fillWidth: true
                 flat: true

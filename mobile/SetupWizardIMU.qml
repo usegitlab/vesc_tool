@@ -184,7 +184,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "IMU Wizard"
+                        text: "IMU 向导"
                     }// Text
                     Text {
                         id: welcomeText2
@@ -210,7 +210,7 @@ Item {
                         id: configuratorButton
                         Layout.fillWidth: true
                         Layout.preferredWidth: 500
-                        text: "IMU Configurator"
+                        text: "IMU 配置器"
                         flat: false
 
                         onClicked: {
@@ -233,7 +233,7 @@ Item {
                         id: gyroCalibrationButton
                         Layout.fillWidth: true
                         Layout.preferredWidth: 500
-                        text: "Gyroscope Calibration"
+                        text: "陀螺仪校准"
                         flat: false
 
                         onClicked: {
@@ -244,7 +244,7 @@ Item {
                         id: accelerometerCalibrationButton
                         Layout.fillWidth: true
                         Layout.preferredWidth: 500
-                        text: "Accelerometer Calibration"
+                        text: "加速度计校准"
                         flat: false
 
                         onClicked: {
@@ -258,7 +258,7 @@ Item {
                         id: orientationCalibrationButton
                         Layout.fillWidth: true
                         Layout.preferredWidth: 500
-                        text: "Orientation Calibration"
+                        text: "方向校准"
                         flat: false
 
                         onClicked: {
@@ -303,7 +303,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Gyroscope calibration"
+                        text: "陀螺仪校准"
                     }// Text
                     Text {
                         id: gyroText2
@@ -347,7 +347,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Accel X calibration"
+                        text: "加速度计 X 轴校准"
                     }// Text
                     Text {
                         id: accelXText2
@@ -379,7 +379,7 @@ Item {
                             id: clearAccelXButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Clear Max"
+                            text: "清除最大值"
                             flat: true
 
                             onClicked: {
@@ -392,7 +392,7 @@ Item {
                             id: skipAccelXButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Skip"
+                            text: "跳过"
                             flat: true
 
                             onClicked: {
@@ -420,7 +420,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Accel Y calibration"
+                        text: "加速度计 Y 轴校准"
                     }// Text
                     Text {
                         id: accelYText2
@@ -452,7 +452,7 @@ Item {
                             id: clearAccelYButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Clear Max"
+                            text: "清除最大值"
                             flat: true
 
                             onClicked: {
@@ -465,7 +465,7 @@ Item {
                             id: skipAccelYButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Skip"
+                            text: "跳过"
                             flat: true
 
                             onClicked: {
@@ -493,7 +493,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Accel Z calibration"
+                        text: "加速度计 Z 轴校准"
                     }// Text
                     Text {
                         id: accelZText2
@@ -525,7 +525,7 @@ Item {
                             id: clearAccelZButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Clear Max"
+                            text: "清除最大值"
                             flat: true
 
                             onClicked: {
@@ -538,7 +538,7 @@ Item {
                             id: skipAccelZButton
                             Layout.fillWidth: true
                             Layout.preferredWidth: 500
-                            text: "Skip"
+                            text: "跳过"
                             flat: true
 
                             onClicked: {
@@ -566,7 +566,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Roll Angle Calibration"
+                        text: "滚转角校准"
                     }// Text
                     Text {
                         id: rollText2
@@ -592,7 +592,7 @@ Item {
                     Button {
                         id: skipRollButton
                         Layout.fillWidth: true
-                        text: "Skip"
+                        text: "跳过"
                         flat: true
 
                         onClicked: {
@@ -620,7 +620,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Pitch Angle Calibration"
+                        text: "俯仰角校准"
                     }// Text
                     Text {
                         id: pitchText2
@@ -645,7 +645,7 @@ Item {
                     Button {
                         id: skipPitchButton
                         Layout.fillWidth: true
-                        text: "Skip"
+                        text: "跳过"
                         flat: true
 
                         onClicked: {
@@ -673,7 +673,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "Yaw Angle Calibration"
+                        text: "偏航角校准"
                     }// Text
                     Text {
                         id: yawText2
@@ -698,7 +698,7 @@ Item {
                     Button {
                         id: skipYawButton
                         Layout.fillWidth: true
-                        text: "Skip"
+                        text: "跳过"
                         flat: true
 
                         onClicked: {
@@ -726,7 +726,7 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "IMU Detector"
+                        text: "IMU 检测器"
                     }// Text
                     Text {
                         id: configuratorText2
@@ -750,7 +750,7 @@ Item {
                     Button {
                         id: searchIMUButton
                         Layout.fillWidth: true
-                        text: "Search for IMU"
+                        text: "搜索 IMU"
                         flat: false
 
                         function onIMUSearchCompleted(previousApp) {
@@ -842,13 +842,13 @@ Item {
                         wrapMode: Text.Wrap
                         horizontalAlignment: Text.AlignHCenter
                         Layout.preferredWidth: parent.width
-                        text: "IMU Profile Selector"
+                        text: "IMU 配置选择器"
                     }// Text
                     GridLayout {
                         columns: 2
                         RadioButton {
                             id: configuratorRadioDefault
-                            text: "Default"
+                            text: "默认"
                             onClicked: {
                                 mAppConf.updateParamInt("imu_conf.sample_rate_hz", 200)
                                 mAppConf.updateParamEnum("imu_conf.mode", 0)
@@ -861,7 +861,7 @@ Item {
                         }
                         RadioButton {
                             id: configuratorRadioLogs
-                            text: "Logs"
+                            text: "日志"
                             onClicked: {
                                 mAppConf.updateParamInt("imu_conf.sample_rate_hz", 200)
                                 mAppConf.updateParamEnum("imu_conf.mode", 1)
@@ -874,7 +874,7 @@ Item {
                         }
                         RadioButton {
                             id: configuratorRadioBUni
-                            text: "Balance Unicycle"
+                            text: "平衡独轮车"
                             onClicked: {
                                 if(imuType == 4){
                                     mAppConf.updateParamInt("imu_conf.sample_rate_hz", 800)
@@ -893,7 +893,7 @@ Item {
                         }
                         RadioButton {
                             id: configuratorRadioBSkate
-                            text: "Balance Skateboard"
+                            text: "平衡滑板"
                             onClicked: {
                                 if(imuType == 4){
                                     mAppConf.updateParamInt("imu_conf.sample_rate_hz", 800)
@@ -950,7 +950,7 @@ Item {
                 id: prevButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: (stackLayout.currentIndex != 0) ? "Cancel" : "Close"
+                text: (stackLayout.currentIndex != 0) ? "Cancel" : "关闭"
                 flat: true
 
                 onClicked: {
@@ -991,7 +991,7 @@ Item {
                 id: nextButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Save"
+                text: "保存"
                 flat: true
                 visible: (stackLayout.currentIndex != 0) ? true : false
 

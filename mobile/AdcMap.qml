@@ -105,7 +105,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Button {
-                text: "Help"
+                text: "帮助"
                 Layout.preferredWidth: 50
                 Layout.fillWidth: true
                 flat: true
@@ -118,7 +118,7 @@ Item {
             }
 
             Button {
-                text: "Reset"
+                text: "重置"
                 Layout.preferredWidth: 50
                 Layout.fillWidth: true
                 flat: true
@@ -129,7 +129,7 @@ Item {
         }
 
         Button {
-            text: "Apply and Write"
+            text: "应用并写入"
             Layout.fillWidth: true
             flat: true
             onClicked: {

@@ -105,7 +105,7 @@ Item {
                     CheckBox {
                         id: acceptUsageBox
                         Layout.fillWidth: true
-                        text: "Yes, I understand and accept"
+                        text: "是的，我理解并接受"
 
                         onToggled: {
                             updateButtonsEnabled()
@@ -141,7 +141,7 @@ Item {
                     CheckBox {
                         id: acceptWarrantyBox
                         Layout.fillWidth: true
-                        text: "Yes, I understand and accept"
+                        text: "是的，我理解并接受"
 
                         onToggled: {
                             updateButtonsEnabled()
@@ -187,19 +187,19 @@ Item {
                 property int buttonWidth: 120
 
                 TabButton {
-                    text: qsTr("Intro")
+                    text: "简介"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Usage")
+                    text: "使用情况"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Warranty")
+                    text: "保修"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Conclusion")
+                    text: "结论"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
             }
@@ -211,7 +211,7 @@ Item {
                 id: prevButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Cancel"
+                text: "取消"
                 flat: true
 
                 onClicked: {
@@ -229,7 +229,7 @@ Item {
                 id: nextButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Next"
+                text: "下一步"
                 flat: true
 
                 onClicked: {
@@ -274,7 +274,7 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 anchors.fill: parent
                 wrapMode: Text.WordWrap
-                text: "You must finish the introduction in order to use VESC Tool."
+                text: "您必须完成简介才能使用 VESC Tool。"
             }
         }
 

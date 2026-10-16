@@ -165,7 +165,7 @@ Item {
 
                     Text {
                         color: {color = Utility.getAppHexColor("lightText")}
-                        text: "Profile Name"
+                        text: "配置名称"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         Layout.fillWidth: true
@@ -194,7 +194,7 @@ Item {
 
                     Text {
                         color: {color = Utility.getAppHexColor("lightText")}
-                        text: "Speed Limit"
+                        text: "速度限制"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         Layout.fillWidth: true
@@ -228,7 +228,7 @@ Item {
 
                     Text {
                         color: {color = Utility.getAppHexColor("lightText")}
-                        text: "Motor Current Scale"
+                        text: "电机电流比例"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         Layout.fillWidth: true
@@ -258,7 +258,7 @@ Item {
 
                     CheckBox {
                         id: powerBox
-                        text: "Enable Power Limit"
+                        text: "启用功率限制"
                         checked: false
                         Layout.fillWidth: true
 
@@ -302,7 +302,7 @@ Item {
                         width: 500
 
                         MenuItem {
-                            text: "Read current configuration"
+                            text: "读取当前配置"
                             onTriggered: {
                                 readCurrentConfig()
                             }
@@ -311,7 +311,7 @@ Item {
                 }
 
                 Button {
-                    text: "Cancel"
+                    text: "取消"
                     Layout.fillWidth: true
                     onClicked: {
                         dialog.close()

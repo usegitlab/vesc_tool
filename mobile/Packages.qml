@@ -123,7 +123,7 @@ Item {
             Text {
                 id: nameText
                 color: Utility.getAppHexColor("lightText")
-                text: "Filter"
+                text: "筛选"
                 horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: false
                 font.pointSize: 12
@@ -155,7 +155,7 @@ Item {
             Layout.fillWidth: true
 
             Button {
-                text: "Update Archive"
+                text: "更新存档"
                 Layout.fillWidth: true
                 onClicked: {
                     disableDialog()
@@ -176,7 +176,7 @@ Item {
             }
 
             Button {
-                text: "Uninstall Current"
+                text: "卸载当前版本"
                 Layout.fillWidth: true
                 onClicked: {
                     disableDialog()
@@ -223,7 +223,7 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Install from file..."
+                        text: "从文件安装..."
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogLoad.close()
@@ -238,7 +238,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogLoad
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: true
                             selectMultiple: false
@@ -289,7 +289,7 @@ Item {
 
     Dialog {
         id: dlDialog
-        title: "Processing..."
+        title: "处理中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true
@@ -309,7 +309,7 @@ Item {
     }
 
     Dialog {
-        title: "Install Package"
+        title: "安装包"
 
         id: installFromPathDialog
         modal: true
@@ -367,7 +367,7 @@ Item {
                 Button {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
-                    text: "Install Package"
+                    text: "安装包"
 
                     onClicked: {
                         disableDialog()
@@ -379,7 +379,7 @@ Item {
                 Button {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
-                    text: "Cancel"
+                    text: "取消"
 
                     onClicked: {
                         installFromPathDialog.close()

@@ -41,7 +41,7 @@ ApplicationWindow {
     visible: true
     width: 500
     height: 850
-    title: qsTr("VESC Tool")
+    title: "VESC Tool"
 
     // Full screen iPhone X workaround:
     property int notchLeft: 0
@@ -181,7 +181,7 @@ ApplicationWindow {
             Button {
                 id: reconnectButton
                 Layout.fillWidth: true
-                text: connected ? "Disconnect" : "Connect"
+                text: connected ? "Disconnect" : "连接"
                 flat: true
                 onClicked: {
                     if (connected) {
@@ -202,7 +202,7 @@ ApplicationWindow {
 
             Button {
                 Layout.fillWidth: true
-                text: "Settings"
+                text: "设置"
                 flat: true
 
                 onClicked: {
@@ -213,7 +213,7 @@ ApplicationWindow {
 
             Button {
                 Layout.fillWidth: true
-                text: "About"
+                text: "关于"
                 flat: true
                 onClicked: {
                     VescIf.emitMessageDialog(
@@ -225,7 +225,7 @@ ApplicationWindow {
 
             Button {
                 Layout.fillWidth: true
-                text: "Changelog"
+                text: "更新日志"
                 flat: true
 
                 onClicked: {
@@ -238,7 +238,7 @@ ApplicationWindow {
 
             Button {
                 Layout.fillWidth: true
-                text: "License"
+                text: "许可证"
                 flat: true
 
                 onClicked: {
@@ -258,7 +258,7 @@ ApplicationWindow {
 
             Button {
                 Layout.fillWidth: true
-                text: "Privacy Policy"
+                text: "隐私政策"
                 flat: true
 
                 onClicked: {
@@ -401,7 +401,7 @@ ApplicationWindow {
                         anchors.top: rtIMU.bottom
                         Layout.fillWidth: true
                         id: useYawBox
-                        text: "Use Yaw (will drift)"
+                        text: "使用偏航（会漂移）"
                         checked: false
                         z:2
                     }
@@ -546,7 +546,7 @@ ApplicationWindow {
     TabButton {
         id: uiHwButton
         visible: uiHwPage.visible
-        text: "HwUi"
+        text: "硬件界面"
         width: tabBar.buttonWidth
     }
 
@@ -565,7 +565,7 @@ ApplicationWindow {
     TabButton {
         id: uiAppButton
         visible: uiAppPage.visible
-        text: "AppUi"
+        text: "应用界面"
         width: tabBar.buttonWidth
     }
 
@@ -584,21 +584,21 @@ ApplicationWindow {
     TabButton {
         id: confMotorButton
         visible: confPageMotor.visible
-        text: "Motor Cfg"
+        text: "电机配置"
         width: tabBar.buttonWidth
     }
 
     TabButton {
         id: confAppButton
         visible: confPageApp.visible
-        text: "App Cfg"
+        text: "应用配置"
         width: tabBar.buttonWidth
     }
 
     TabButton {
         id: confCustomButton
         visible: confCustomPage.visible
-        text: "Custom Cfg"
+        text: "自定义配置"
         width: tabBar.buttonWidth
     }
 
@@ -1210,7 +1210,7 @@ ApplicationWindow {
         rightMargin: 10
         leftMargin: 10
         closePolicy: Popup.CloseOnEscape
-        title: "Load Custom User Interface"
+        title: "加载自定义用户界面"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"
@@ -1239,7 +1239,7 @@ ApplicationWindow {
             CheckBox {
                 Layout.fillWidth: true
                 id: qmlDoNotAskAgainBox
-                text: "Load without asking"
+                text: "直接加载"
             }
         }
 

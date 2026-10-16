@@ -132,7 +132,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
                     flat: true
-                    text: "Use until reboot"
+                    text: "重启前使用"
                     onClicked: {
                         mCommands.setMcconfTemp(VescIf.getProfile(index),
                                                 true, false, true, false, true)
@@ -143,7 +143,7 @@ Item {
                 Button {
                     id: editButton
                     flat: true
-                    text: "Edit"
+                    text: "编辑"
                     onClicked: {
                         editRequested(index)
                     }
@@ -152,7 +152,7 @@ Item {
                 Button {
                     id: downButton
                     flat: true
-                    text: "DOWN"
+                    text: "下"
                     onClicked: {
                         VescIf.moveProfileDown(index)
                         VescIf.storeSettings()
@@ -164,7 +164,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
                     flat: true
-                    text: "Use permanently"
+                    text: "永久使用"
                     onClicked: {
                         permanentDialog.open()
                     }
@@ -178,7 +178,7 @@ Item {
                         width: parent.width - 20
                         height: 200
                         closePolicy: Popup.CloseOnEscape
-                        title: "Use Profile Permanently"
+                        title: "永久使用配置"
                         x: 10
                         y: 10 + parent.height / 2 - height / 2
                         parent: dialogParent
@@ -208,7 +208,7 @@ Item {
                 Button {
                     id: deleteButton
                     flat: true
-                    text: "Delete"
+                    text: "删除"
                     onClicked: {
                         deleteRequested(index)
                     }

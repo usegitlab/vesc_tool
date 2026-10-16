@@ -189,7 +189,7 @@ Item {
                         RowLayout {
                             Button {
                                 Layout.fillWidth: true
-                                text: "Write General to All"
+                                text: "写入常规到全部"
 
                                 onClicked: {
                                     disableDialog("Writing Parameters...")
@@ -208,7 +208,7 @@ Item {
                             }
                             Button {
                                 Layout.fillWidth: true
-                                text: "Close"
+                                text: "关闭"
                                 onClicked: {
                                     dialog.close()
                                 }
@@ -239,7 +239,7 @@ Item {
                         RowLayout {
                             Button {
                                 Layout.fillWidth: true
-                                text: "Write Limits to All"
+                                text: "写入限制到全部"
                                 onClicked: {
                                     disableDialog("Writing Parameters...")
                                     workaroundTimerWriteLimitsAll.start()
@@ -257,7 +257,7 @@ Item {
                             }
                             Button {
                                 Layout.fillWidth: true
-                                text: "Close"
+                                text: "关闭"
                                 onClicked: {
                                     dialog.close()
                                 }
@@ -302,7 +302,7 @@ Item {
                             }
 
                             Button {
-                                text: "Calculate Kp&Ki"
+                                text: "计算 Kp 和 Ki"
 
                                 onClicked: {
                                     var ind = mMcConf.getParamDouble("foc_motor_l")
@@ -321,7 +321,7 @@ Item {
                         RowLayout {
                             Button {
                                 Layout.fillWidth: true
-                                text: "Write FOC to All"
+                                text: "写入 FOC 到全部"
 
                                 onClicked: {
                                     disableDialog("Writing Parameters...")
@@ -340,7 +340,7 @@ Item {
                             }
                             Button {
                                 Layout.fillWidth: true
-                                text: "Close"
+                                text: "关闭"
                                 onClicked: {
                                     dialog.close()
                                 }
@@ -371,7 +371,7 @@ Item {
                         RowLayout {
                             Button {
                                 Layout.fillWidth: true
-                                text: "Write BMS to All"
+                                text: "写入 BMS 到全部"
 
                                 onClicked: {
                                     disableDialog("Writing Parameters...")
@@ -390,7 +390,7 @@ Item {
                             }
                             Button {
                                 Layout.fillWidth: true
-                                text: "Close"
+                                text: "关闭"
                                 onClicked: {
                                     dialog.close()
                                 }
@@ -445,7 +445,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Communicating..."
+        title: "通信中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true

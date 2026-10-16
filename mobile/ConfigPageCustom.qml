@@ -123,7 +123,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Write"
+                text: "写入"
 
                 onClicked: {
                     if (VescIf.customConfig(confInd) === null) {
@@ -137,7 +137,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Read"
+                text: "读取"
 
                 onClicked: {
                     mCommands.customConfigGet(confInd, false)
@@ -160,13 +160,13 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Read Default Settings"
+                        text: "读取默认设置"
                         onTriggered: {
                             mCommands.customConfigGet(confInd, true)
                         }
                     }
                     MenuItem {
-                        text: "Save XML"
+                        text: "保存 XML"
                         // HERE save
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
@@ -182,7 +182,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogSave
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: false
                             selectMultiple: false
@@ -208,7 +208,7 @@ Item {
                         }
                     }
                     MenuItem {
-                        text: "Load XML"
+                        text: "加载 XML"
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogLoad.close()
@@ -223,7 +223,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogLoad
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: true
                             selectMultiple: false

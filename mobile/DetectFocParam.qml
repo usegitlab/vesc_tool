@@ -186,7 +186,7 @@ Item {
                 }
 
                 Button {
-                    text: "Help"
+                    text: "帮助"
                     Layout.fillWidth: true
                     onClicked: {
                         VescIf.emitMessageDialog(
@@ -199,7 +199,7 @@ Item {
                 RowLayout {
                     Layout.fillWidth: true
                     Button {
-                        text: "Detect R&L"
+                        text: "检测 R&L"
                         Layout.preferredWidth: 50
                         Layout.fillWidth: true
                         onClicked: {
@@ -251,7 +251,7 @@ Item {
                 }
 
                 Button {
-                    text: "Apply & Close"
+                    text: "应用并关闭"
                     Layout.fillWidth: true
                     onClicked: {
                         if (res < 1e-10) {
@@ -299,7 +299,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Measure R & L"
+        title: "测量 R & L"
 
         x: 10
         y: Math.max((parent.height - height) / 2, 10)
@@ -333,7 +333,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Warning"
+        title: "警告"
 
         x: 10
         y: Math.max((parent.height - height) / 2, 10)

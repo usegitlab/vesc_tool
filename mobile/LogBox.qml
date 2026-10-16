@@ -45,7 +45,7 @@ Item {
         columns: 3
 
         Button {
-            text: "Help"
+            text: "帮助"
             Layout.fillWidth: true
 
             onClicked: {
@@ -57,7 +57,7 @@ Item {
         }
 
         Button {
-            text: "Reset"
+            text: "重置"
             Layout.fillWidth: true
             focusPolicy: Qt.NoFocus
 
@@ -67,7 +67,7 @@ Item {
         }
 
         Button {
-            text: "Browse"
+            text: "浏览"
             Layout.fillWidth: true
             focusPolicy: Qt.NoFocus
 
@@ -88,7 +88,7 @@ Item {
 
             FolderDialog {
                 id: folderDialog
-                title: "Please choose a folder"
+                title: "请选择一个文件夹"
                 onAccepted: {
                     rtLogFileText.text = folderDialog.folder
                     close()
@@ -141,7 +141,7 @@ Item {
 
         CheckBox {
             id: rtLogEnBox
-            text: "Enable RT Data Logging"
+            text: "启用实时数据记录"
             Layout.fillWidth: true
             Layout.columnSpan: 3
             focusPolicy: Qt.NoFocus

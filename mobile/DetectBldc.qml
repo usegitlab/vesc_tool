@@ -160,7 +160,7 @@ Item {
                 RowLayout {
                     Layout.fillWidth: true
                     Button {
-                        text: "Help"
+                        text: "帮助"
                         Layout.fillWidth: true
                         Layout.preferredWidth: 50
                         onClicked: {
@@ -172,7 +172,7 @@ Item {
                     }
 
                     Button {
-                        text: "Detect"
+                        text: "检测"
                         Layout.preferredWidth: 50
                         Layout.fillWidth: true
                         onClicked: {
@@ -194,7 +194,7 @@ Item {
                 }
 
                 Button {
-                    text: "Apply & Close"
+                    text: "应用并关闭"
                     Layout.fillWidth: true
                     onClicked: {
                         if (!resultReceived) {
@@ -227,7 +227,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Detect BLDC Parameters"
+        title: "检测 BLDC 参数"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"

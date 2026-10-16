@@ -64,7 +64,7 @@ Item {
                 labelStep: maximumValue > 60 ? 20 : 10
                 value: 0
                 unitText: "A"
-                typeText: "Current"
+                typeText: "电流"
                 Layout.preferredWidth: gaugeSize
                 Layout.preferredHeight: gaugeSize
             }

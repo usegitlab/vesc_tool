@@ -98,7 +98,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Communicating..."
+        title: "通信中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true
@@ -148,7 +148,7 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         color: Utility.getAppHexColor("lightText")
-                        text: qsTr("Which VESC is the input connected to?")
+                        text: "输入连接到哪个 VESC？"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.WordWrap
@@ -229,7 +229,7 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         color: Utility.getAppHexColor("lightText")
-                        text: qsTr("Select Input Type")
+                        text: "选择输入类型"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.WordWrap
@@ -346,7 +346,7 @@ Item {
                     Text {
                         Layout.fillWidth: true
                         color: Utility.getAppHexColor("lightText")
-                        text: qsTr("Move the throttle(s) from min to max, then leave it in the center.")
+                        text: "将油门从最小移动到最大，然后保持在中间位置。"
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.WordWrap
@@ -379,7 +379,7 @@ Item {
                     GroupBox {
                         id: nrfPairBox
                         Layout.fillWidth: true
-                        title: "NRF Pairing"
+                        title: "NRF 配对"
                         visible: false
                         NrfPair {
                             id: nrfPair
@@ -395,7 +395,7 @@ Item {
 
                     Button {
                         Layout.fillWidth: true
-                        text: "Write Configuration"
+                        text: "写入配置"
 
                         onClicked: {
                             mCommands.setAppConf()
@@ -426,19 +426,19 @@ Item {
                 property int buttonWidth: 120
 
                 TabButton {
-                    text: qsTr("Connection")
+                    text: "连接"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Type")
+                    text: "类型"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Mapping")
+                    text: "映射"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {
-                    text: qsTr("Setup")
+                    text: "向导"
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
             }
@@ -450,7 +450,7 @@ Item {
                 id: prevButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Cancel"
+                text: "取消"
                 flat: true
 
                 onClicked: {
@@ -479,7 +479,7 @@ Item {
                 id: nextButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Next"
+                text: "下一步"
                 flat: true
 
                 onClicked: {
@@ -646,7 +646,7 @@ Item {
         y: dialog.y + dialog.height / 2 - height / 2
 
         closePolicy: Popup.CloseOnEscape
-        title: "NRF Pairing"
+        title: "NRF 配对"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"

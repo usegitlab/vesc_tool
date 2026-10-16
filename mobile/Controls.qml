@@ -94,7 +94,7 @@ Item {
 
                             CheckBox {
                                 id: maintainCurrentBox
-                                text: "Continue after release"
+                                text: "松开后继续"
                             }
 
                             RowLayout {
@@ -103,7 +103,7 @@ Item {
                                 Button {
                                     Layout.fillWidth: true
                                     Layout.preferredWidth: 100
-                                    text: "Set REV"
+                                    text: "设置反转"
 
                                     onPressedChanged: {
                                         if (pressed) {
@@ -117,7 +117,7 @@ Item {
                                 Button {
                                     Layout.fillWidth: true
                                     Layout.preferredWidth: 100
-                                    text: "Set FWD"
+                                    text: "设置正转"
 
                                     onPressedChanged: {
                                         if (pressed) {
@@ -131,7 +131,7 @@ Item {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Brake"
+                                text: "刹车"
 
                                 onPressedChanged: {
                                     if (pressed) {
@@ -144,7 +144,7 @@ Item {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Release"
+                                text: "释放"
 
                                 onClicked: {
                                     mCommands.setCurrent(0.0)
@@ -180,7 +180,7 @@ Item {
 
                         CheckBox {
                             id: maintainDutyBox
-                            text: "Continue after release"
+                            text: "松开后继续"
                         }
 
                         RowLayout {
@@ -189,7 +189,7 @@ Item {
                             Button {
                                 Layout.fillWidth: true
                                 Layout.preferredWidth: 100
-                                text: "Set REV"
+                                text: "设置反转"
 
                                 onPressedChanged: {
                                     if (pressed) {
@@ -203,7 +203,7 @@ Item {
                             Button {
                                 Layout.fillWidth: true
                                 Layout.preferredWidth: 100
-                                text: "Set FWD"
+                                text: "设置正转"
 
                                 onPressedChanged: {
                                     if (pressed) {
@@ -230,7 +230,7 @@ Item {
 
                         Button {
                             Layout.fillWidth: true
-                            text: "Release"
+                            text: "释放"
 
                             onClicked: {
                                 mCommands.setCurrent(0.0)
@@ -270,7 +270,7 @@ Item {
 
                             CheckBox {
                                 id: maintainSpeedBox
-                                text: "Continue after release"
+                                text: "松开后继续"
                             }
 
                             RowLayout {
@@ -279,7 +279,7 @@ Item {
                                 Button {
                                     Layout.fillWidth: true
                                     Layout.preferredWidth: 100
-                                    text: "Set REV"
+                                    text: "设置反转"
 
                                     onPressedChanged: {
                                         if (pressed) {
@@ -293,7 +293,7 @@ Item {
                                 Button {
                                     Layout.fillWidth: true
                                     Layout.preferredWidth: 100
-                                    text: "Set FWD"
+                                    text: "设置正转"
 
                                     onPressedChanged: {
                                         if (pressed) {
@@ -320,7 +320,7 @@ Item {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Release"
+                                text: "释放"
 
                                 onClicked: {
                                     mCommands.setCurrent(0.0)
@@ -361,12 +361,12 @@ Item {
 
                             CheckBox {
                                 id: maintainPosBox
-                                text: "Continue after release"
+                                text: "松开后继续"
                             }
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Set"
+                                text: "设置"
 
                                 onPressedChanged: {
                                     if (pressed) {
@@ -379,7 +379,7 @@ Item {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Release"
+                                text: "释放"
 
                                 onClicked: {
                                     mCommands.setCurrent(0.0)
@@ -395,7 +395,7 @@ Item {
 
                 Text {
                     color: Utility.getAppHexColor("lightText")
-                    text: qsTr("Opacity")
+                    text: "不透明度"
                 }
 
                 Slider {

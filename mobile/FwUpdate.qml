@@ -116,7 +116,7 @@ Item {
                             Text {
                                 anchors.centerIn: parent
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Included Files"
+                                text: "包含文件"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
@@ -125,7 +125,7 @@ Item {
 
                         Button {
                             id: latestUpdateButton
-                            text: "Download Latest"
+                            text: "下载最新版本"
                             Layout.fillWidth: true
 
                             onClicked: {
@@ -182,7 +182,7 @@ Item {
                                 color: Utility.getAppHexColor("lightText")
                                 Layout.fillWidth: true
                                 height: 30;
-                                text: "Hardware"
+                                text: "硬件"
                                 horizontalAlignment: Text.AlignHCenter
                             }
 
@@ -230,7 +230,7 @@ Item {
                                 color: Utility.getAppHexColor("lightText")
                                 Layout.fillWidth: true
                                 height: 30;
-                                text: "Firmware"
+                                text: "固件"
                                 horizontalAlignment: Text.AlignHCenter
                             }
 
@@ -247,7 +247,7 @@ Item {
                             }
 
                             Button {
-                                text: "Show Changelog"
+                                text: "显示更新日志"
                                 Layout.fillWidth: true
 
                                 onClicked: {
@@ -285,7 +285,7 @@ Item {
                             Text {
                                 anchors.centerIn: parent
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Custom File"
+                                text: "自定义文件"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
@@ -305,7 +305,7 @@ Item {
                         }
 
                         Button {
-                            text: "Choose File..."
+                            text: "选择文件..."
                             Layout.fillWidth: true
 
                             onClicked: {
@@ -330,7 +330,7 @@ Item {
 
                     Dl.FileDialog {
                         id: fileDialog
-                        title: "Choose a firmware file"
+                        title: "选择固件文件"
                         nameFilters: ["*"]
                         selectedNameFilter: "*"
                         onAccepted: {
@@ -362,7 +362,7 @@ Item {
                             Text {
                                 anchors.centerIn: parent
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Bootloader"
+                                text: "引导程序"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
@@ -379,7 +379,7 @@ Item {
                             color: Utility.getAppHexColor("lightText")
                             Layout.fillWidth: true
                             height: 30;
-                            text: "Hardware"
+                            text: "硬件"
                             horizontalAlignment: Text.AlignHCenter
                         }
 
@@ -426,7 +426,7 @@ Item {
                             Text {
                                 anchors.centerIn: parent
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Firmware Archive"
+                                text: "固件存档"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
@@ -443,7 +443,7 @@ Item {
                             color: Utility.getAppHexColor("lightText")
                             Layout.fillWidth: true
                             height: 30;
-                            text: "Firmware Version"
+                            text: "固件版本"
                             horizontalAlignment: Text.AlignHCenter
                         }
 
@@ -485,7 +485,7 @@ Item {
                             color: Utility.getAppHexColor("lightText")
                             Layout.fillWidth: true
                             height: 30;
-                            text: "File"
+                            text: "文件"
                             horizontalAlignment: Text.AlignHCenter
                         }
 
@@ -504,7 +504,7 @@ Item {
 
                         Button {
                             id: archUpdateButton
-                            text: "Update Archive"
+                            text: "更新存档"
                             Layout.fillWidth: true
 
                             onClicked: {
@@ -553,7 +553,7 @@ Item {
                     verticalAlignment: Text.AlignBottom
                     color: Utility.getAppHexColor("lightText")
                     id: uploadText
-                    text: qsTr("Not Uploading")
+                    text: "未上传"
                 }
 
                 ProgressBar {
@@ -566,7 +566,7 @@ Item {
 
                     Button {
                         id: uploadButton
-                        text: qsTr("Upload")
+                        text: "上传"
                         Layout.fillWidth: true
 
                         onClicked: {
@@ -576,7 +576,7 @@ Item {
 
                     Button {
                         id: uploadAllButton
-                        text: qsTr("Upload All")
+                        text: "全部上传"
                         Layout.fillWidth: true
                         visible: showUploadAllButton
 
@@ -587,7 +587,7 @@ Item {
 
                     Button {
                         id: cancelButton
-                        text: qsTr("Cancel")
+                        text: "取消"
                         Layout.fillWidth: true
                         enabled: false
 

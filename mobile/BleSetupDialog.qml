@@ -35,7 +35,7 @@ Item {
     }
 
     Dialog {
-        title: "BLE Module Setup"
+        title: "BLE 模块设置"
 
         id: dialog
         modal: true
@@ -80,7 +80,7 @@ Item {
                 CheckBox {
                     id: useNameBox
                     checked: true
-                    text: "Update Name"
+                    text: "更新名称"
                 }
             }
 
@@ -117,7 +117,7 @@ Item {
 
             Button {
                 Layout.fillWidth: true
-                text: "Apply && Reset NRF"
+                text: "应用并重置 NRF"
                 visible: useNameBox.checked || usePinBox.checked
                 onClicked: {
                     if (!VescIf.isPortConnected()) {
@@ -169,7 +169,7 @@ Item {
 
             Button {
                 Layout.fillWidth: true
-                text: "Cancel"
+                text: "取消"
 
                 onClicked: {
                     dialog.close()

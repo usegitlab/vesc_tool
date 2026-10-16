@@ -59,7 +59,7 @@ Item {
 
     Dialog {
         id: directionSetupDialog
-        title: "Direction Setup"
+        title: "方向设置"
         standardButtons: Dialog.Close
         modal: true
         focus: true
@@ -89,7 +89,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Measure Offsets"
+        title: "测量偏移"
 
         x: 10
         y: Math.max((parent.height - height) / 2, 10)
@@ -221,7 +221,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Write"
+                text: "写入"
 
                 onClicked: {
                     mCommands.setMcconf(true)
@@ -231,7 +231,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Read"
+                text: "读取"
 
                 onClicked: {
                     mCommands.getMcconf()
@@ -255,37 +255,37 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Read Default Settings"
+                        text: "读取默认设置"
                         onTriggered: {
                             mCommands.getMcconfDefault()
                         }
                     }
                     MenuItem {
-                        text: "Detect BLDC Parameters..."
+                        text: "检测 BLDC 参数..."
                         onTriggered: {
                             detectBldc.openDialog()
                         }
                     }
                     MenuItem {
-                        text: "Detect FOC Parameters..."
+                        text: "检测 FOC 参数..."
                         onTriggered: {
                             detectFocParam.openDialog()
                         }
                     }
                     MenuItem {
-                        text: "Detect FOC Hall Sensors..."
+                        text: "检测 FOC 霍尔传感器..."
                         onTriggered: {
                             detectFocHall.openDialog()
                         }
                     }
                     MenuItem {
-                        text: "Detect FOC Encoder..."
+                        text: "检测 FOC 编码器..."
                         onTriggered: {
                             detectFocEncoder.openDialog()
                         }
                     }
                     MenuItem {
-                        text: "Measure FOC Offsets"
+                        text: "测量 FOC 偏移"
                         onTriggered: {
                             if (VescIf.isPortConnected()) {
                                 measureOffsetDialog.open()
@@ -295,14 +295,14 @@ Item {
                         }
                     }
                     MenuItem {
-                        text: "Setup Motor Directions..."
+                        text: "设置电机方向..."
                         onTriggered: {
                             directionSetupDialog.open()
                             directionSetup.scanCan()
                         }
                     }
                     MenuItem {
-                        text: "Save XML"
+                        text: "保存 XML"
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogSave.close()
@@ -317,7 +317,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogSave
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: false
                             selectMultiple: false
@@ -339,7 +339,7 @@ Item {
                         }
                     }
                     MenuItem {
-                        text: "Load XML"
+                        text: "加载 XML"
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogLoad.close()
@@ -354,7 +354,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogLoad
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: true
                             selectMultiple: false

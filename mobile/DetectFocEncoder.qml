@@ -103,7 +103,7 @@ Item {
                 RowLayout {
                     Layout.fillWidth: true
                     Button {
-                        text: "Help"
+                        text: "帮助"
                         Layout.preferredWidth: 50
                         Layout.fillWidth: true
                         onClicked: {
@@ -115,7 +115,7 @@ Item {
                     }
 
                     Button {
-                        text: "Detect"
+                        text: "检测"
                         Layout.preferredWidth: 50
                         Layout.fillWidth: true
                         onClicked: {
@@ -138,7 +138,7 @@ Item {
                 }
 
                 Button {
-                    text: "Apply & Close"
+                    text: "应用并关闭"
                     Layout.fillWidth: true
                     onClicked: {
                         mMcConf.updateParamDouble("foc_encoder_offset", mOffset)
@@ -161,7 +161,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Detect FOC Encoder Parameters"
+        title: "检测 FOC 编码器参数"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"

@@ -1,0 +1,74 @@
+name: Build VESC Tool Android (Chinese)
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Qt for Android (arm64)
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          target: 'android'
+          arch: 'android_arm64_v8a'
+          install-deps: 'true'
+
+      - name: Install Qt tools (desktop)
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          target: 'desktop'
+          arch: 'gcc_64'
+          install-deps: 'true'
+          set-env: 'false'
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install NDK + platform
+        run: |
+          sdkmanager "ndk;23.2.8568313" "platforms;android-33" "build-tools;33.0.2"
+          echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
+
+      - name: Build APK (mobile, Chinese)
+        run: |
+          mkdir -p build/android
+          $Qt5_DIR/bin/qmake \
+            "CONFIG += release_android build_mobile" \
+            ANDROID_ABIS="arm64-v8a" \
+            -spec android-clang
+          make -j$(nproc)
+          make install INSTALL_ROOT=build/android/build
+          $Qt5_DIR/bin/androiddeployqt \
+            --gradle \
+            --no-gdbserver \
+            --output build/android/build \
+            --input android-vesc_tool-deployment-settings.json \
+            --android-platform android-33
+          cp build/android/build/build/outputs/apk/debug/build-debug.apk \
+             build/android/vesc_tool_mobile_zh.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: vesc_tool_mobile_chinese
+          path: build/android/vesc_tool_mobile_zh.apk
+          retention-days: 30

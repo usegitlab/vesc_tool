@@ -95,7 +95,7 @@ Item {
             id: text
             Layout.fillWidth: true
             color: Utility.getAppHexColor("lightText")
-            text: qsTr("CAN Devices")
+            text: "CAN 设备"
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -215,7 +215,7 @@ Item {
 
         Button {
             id: scanButton
-            text: qsTr("CAN Scan")
+            text: "CAN 扫描"
             enabled: false
             Layout.fillWidth: true
             onClicked: {
@@ -250,7 +250,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Connecting..."
+        title: "连接中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true
@@ -287,7 +287,7 @@ Item {
             }
 
             scanButton.enabled = true
-            scanButton.text = qsTr("Scan")
+            scanButton.text = "扫描"
 
             if (VescIf.isPortConnected()) {
                 canModel.clear()
@@ -324,7 +324,7 @@ Item {
                 name = name.replace("_", " ")
 
                 canModel.append({"name": name,
-                                    "ID": "LOCAL",
+                                    "ID": "本地",
                                     "deviceIconPath": devicePath,
                                     "logoIconPath": logoPath})
                 for (var i = 0;i < devs.length;i++) {

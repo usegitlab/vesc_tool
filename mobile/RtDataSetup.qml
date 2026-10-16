@@ -80,7 +80,7 @@ Item {
                 labelStep: maximumValue > 60 ? 20 : 10
                 nibColor: {nibColor = Utility.getAppHexColor("tertiary1")}
                 unitText: "A"
-                typeText: "Current"
+                typeText: "电流"
                 minAngle: -210
                 maxAngle: 15
                 CustomGauge {
@@ -204,7 +204,7 @@ Item {
                                     spacing: 10
 
                                     GroupBox {
-                                        title: qsTr("Update Odometer")
+                                        title: "更新里程计"
                                         Layout.fillWidth: true
 
                                         RowLayout {
@@ -219,7 +219,7 @@ Item {
                                             }
 
                                             Button {
-                                                text: "Set"
+                                                text: "设置"
 
                                                 onClicked: {
                                                     var impFact = VescIf.useImperialUnits() ? 0.621371192 : 1.0
@@ -230,13 +230,13 @@ Item {
                                     }
 
                                     GroupBox {
-                                        title: qsTr("Settings")
+                                        title: "设置"
                                         Layout.fillWidth: true
 
                                         CheckBox {
                                             id: negSpeedBox
                                             anchors.fill: parent
-                                            text: "Use Negative Speed"
+                                            text: "使用负速度"
                                             checked: VescIf.speedGaugeUseNegativeValues()
                                         }
                                     }
@@ -317,7 +317,7 @@ Item {
                     Text {
                         id: batteryLabel
                         color: {color = Utility.getAppHexColor("lightText")}
-                        text: "BATTERY"
+                        text: "电池"
                         font.pixelSize: gaugeSize2/18.0
                         verticalAlignment: Text.AlignVCenter
                         anchors.centerIn: parent
@@ -339,7 +339,7 @@ Item {
                     Text {
                         id: rangeLabel
                         color: {color = Utility.getAppHexColor("lightText")}
-                        text: "KM RANGE"
+                        text: "公里范围"
                         font.pixelSize: gaugeSize2/20.0
                         verticalAlignment: Text.AlignVCenter
                         anchors.centerIn: parent
@@ -516,7 +516,7 @@ Item {
                             Text {
                                 id: avgLabel
                                 color: {color = Utility.getAppHexColor("lightText")}
-                                text: "AVG"
+                                text: "平均值"
                                 font.pixelSize: gaugeSize2*0.06
                                 anchors.verticalCenterOffset: 0.135*gaugeSize2
                                 verticalAlignment: Text.AlignVCenter
@@ -547,7 +547,7 @@ Item {
             Text {
                 id: odoLabel
                 color: {color = Utility.getAppHexColor("lightText")}
-                text: "ODOMETER"
+                text: "里程计"
                 anchors.horizontalCenterOffset:  gaugeSize2*-2/3
                 font.pixelSize: gaugeSize2/18.0
                 verticalAlignment: Text.AlignVCenter
@@ -559,7 +559,7 @@ Item {
             Text {
                 id: timeLabel
                 color: {color = Utility.getAppHexColor("lightText")}
-                text: "UP-TIME"
+                text: "运行时间"
                 anchors.horizontalCenterOffset:  gaugeSize2*2/3
                 font.pixelSize: gaugeSize2/18.0
                 verticalAlignment: Text.AlignVCenter
@@ -571,7 +571,7 @@ Item {
             Text {
                 id: tripLabel
                 color: {color = Utility.getAppHexColor("lightText")}
-                text: "TRIP"
+                text: "行程"
                 anchors.horizontalCenterOffset:  0
                 font.pixelSize: gaugeSize2/18.0
                 verticalAlignment: Text.AlignVCenter

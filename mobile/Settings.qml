@@ -38,7 +38,7 @@ Item {
         standardButtons: Dialog.Close
         modal: true
         focus: true
-        title: "VESC Tool Settings"
+        title: "VESC Tool 设置"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"
@@ -60,21 +60,21 @@ Item {
                 CheckBox {
                     id: imperialBox
                     Layout.fillWidth: true
-                    text: "Use Imperial Units"
+                    text: "使用英制单位"
                     checked: VescIf.useImperialUnits()
                 }
 
                 CheckBox {
                     id: negativeSpeedBox
                     Layout.fillWidth: true
-                    text: "Use Negative Speed"
+                    text: "使用负速度"
                     checked: VescIf.speedGaugeUseNegativeValues()
                 }
 
                 CheckBox {
                     id: screenOnBox
                     Layout.fillWidth: true
-                    text: "Keep Screen On"
+                    text: "保持屏幕常亮"
                     checked: VescIf.keepScreenOn()
                     visible: Qt.platform.os !== "ios"
                     enabled: Qt.platform.os !== "ios"
@@ -83,7 +83,7 @@ Item {
                 CheckBox {
                     id: screenRotBox
                     Layout.fillWidth: true
-                    text: "Allow Screen Rotation"
+                    text: "允许屏幕旋转"
                     checked: VescIf.getAllowScreenRotation()
                     visible: Qt.platform.os !== "ios"
                     enabled: Qt.platform.os !== "ios"
@@ -92,42 +92,42 @@ Item {
                 CheckBox {
                     id: qmlUiBox
                     Layout.fillWidth: true
-                    text: "Load QML UI on Connect"
+                    text: "连接时加载 QML 界面"
                     checked: VescIf.getLoadQmlUiOnConnect()
                 }
 
                 CheckBox {
                     id: qmlUiAskBox
                     Layout.fillWidth: true
-                    text: "Ask before loading QML UI"
+                    text: "加载 QML 界面前询问"
                     checked: VescIf.askQmlLoad()
                 }
 
                 CheckBox {
                     id: reconnectLastCanBox
                     Layout.fillWidth: true
-                    text: "Reconnect CAN on connect"
+                    text: "连接时重新连接 CAN"
                     checked: VescIf.reconnectLastCan()
                 }
 
                 CheckBox {
                     id: scanCanConnectBox
                     Layout.fillWidth: true
-                    text: "Scan CAN on connect"
+                    text: "连接时扫描 CAN"
                     checked: VescIf.scanCanOnConnect()
                 }
 
                 CheckBox {
                     id: fwUpdateAvailableBox
                     Layout.fillWidth: true
-                    text: "Show firmware update message"
+                    text: "显示固件更新消息"
                     checked: VescIf.showFwUpdateAvailable()
                 }
 
                 CheckBox {
                     id: darkModeBox
                     Layout.fillWidth: true
-                    text: "Use Dark Mode"
+                    text: "使用深色模式"
                     checked: Utility.isDarkMode()
                     onCheckedChanged: {
                         Utility.setDarkMode(checked)
@@ -181,7 +181,7 @@ Item {
         focus: true
         width: parent.width - 20
         closePolicy: Popup.CloseOnEscape
-        title: "Theme Changed"
+        title: "主题已更改"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"

@@ -40,7 +40,7 @@ Item {
 
     Dialog {
         id: ppmMap
-        title: "PPM Mapping"
+        title: "PPM 映射"
         standardButtons: Dialog.Close
         modal: true
         focus: true
@@ -62,7 +62,7 @@ Item {
 
     Dialog {
         id: adcMap
-        title: "ADC Mapping"
+        title: "ADC 映射"
         standardButtons: Dialog.Close
         modal: true
         focus: true
@@ -84,7 +84,7 @@ Item {
 
     Dialog {
         id: nrfPair
-        title: "NRF Pairing"
+        title: "NRF 配对"
         standardButtons: Dialog.Close
         modal: true
         focus: true
@@ -197,7 +197,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Write"
+                text: "写入"
 
                 onClicked: {
                     mCommands.setAppConf()
@@ -207,7 +207,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Read"
+                text: "读取"
 
                 onClicked: {
                     mCommands.getAppConf()
@@ -230,31 +230,31 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Read Default Settings"
+                        text: "读取默认设置"
                         onTriggered: {
                             mCommands.getAppConfDefault()
                         }
                     }
                     MenuItem {
-                        text: "PPM Mapping..."
+                        text: "PPM 映射..."
                         onTriggered: {
                             ppmMap.open()
                         }
                     }
                     MenuItem {
-                        text: "ADC Mapping..."
+                        text: "ADC 映射..."
                         onTriggered: {
                             adcMap.open()
                         }
                     }
                     MenuItem {
-                        text: "Pair NRF..."
+                        text: "配对 NRF..."
                         onTriggered: {
                             nrfPair.open()
                         }
                     }
                     MenuItem {
-                        text: "Save XML"
+                        text: "保存 XML"
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogSave.close()
@@ -269,7 +269,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogSave
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: false
                             selectMultiple: false
@@ -295,7 +295,7 @@ Item {
                         }
                     }
                     MenuItem {
-                        text: "Load XML"
+                        text: "加载 XML"
                         onTriggered: {
                             if (Utility.requestFilePermission()) {
                                 fileDialogLoad.close()
@@ -310,7 +310,7 @@ Item {
 
                         Dl.FileDialog {
                             id: fileDialogLoad
-                            title: "Please choose a file"
+                            title: "请选择一个文件"
                             nameFilters: ["*"]
                             selectExisting: true
                             selectMultiple: false

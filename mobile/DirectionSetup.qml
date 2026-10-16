@@ -78,7 +78,7 @@ Item {
             id: text
             Layout.fillWidth: true
             color: {color = Utility.getAppHexColor("lightText")}
-            text: qsTr("Select which VESCs have inverted motor direction. Press the FWD or REV button to try.")
+            text: "选择电机方向反转的 VESC，按正转或反转按钮进行测试。"
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -148,7 +148,7 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                                 Layout.rightMargin: 5
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Inverted"
+                                text: "反转"
                                 horizontalAlignment: Text.AlignHCenter
                             }
 
@@ -182,7 +182,7 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                                 Layout.preferredWidth: 70
                                 Layout.preferredHeight: 55
-                                text: "FWD"
+                                text: "正转"
 
                                 onClicked: {
                                     disableDialog()
@@ -204,7 +204,7 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                                 Layout.preferredWidth: 70
                                 Layout.preferredHeight: 55
-                                text: "REV"
+                                text: "反转"
 
                                 onClicked: {
                                     disableDialog()
@@ -243,7 +243,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Communicating..."
+        title: "通信中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true        

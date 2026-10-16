@@ -138,7 +138,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Button {
-                text: qsTr("Hide")
+                text: "隐藏"
                 Layout.preferredWidth: 120
                 flat: true
                 onClicked: {
@@ -150,7 +150,7 @@ Item {
                 id: text
                 Layout.fillWidth: true
                 color: Utility.getAppHexColor("lightText")
-                text: qsTr("Devices Found")
+                text: "发现设备"
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -158,7 +158,7 @@ Item {
 
             Button {
                 id: scanButton
-                text: qsTr("Scan...")
+                text: "扫描..."
                 enabled: true
                 flat: true
                 Layout.preferredWidth: 120
@@ -171,7 +171,7 @@ Item {
                     id: scanMenu
 
                     MenuItem {
-                        text: "Scan BLE"
+                        text: "扫描 BLE"
                         enabled: !scanning
                         onTriggered: {
                             startBleScan()
@@ -179,7 +179,7 @@ Item {
                     }
 
                     MenuItem {
-                        text: "Ping TCP hub"
+                        text: "Ping TCP Hub"
                         onTriggered: {
                             bleModel.clear()
                             pingTcpHub = true
@@ -188,7 +188,7 @@ Item {
                     }
 
                     MenuItem {
-                        text: "Connect TCP Hub..."
+                        text: "连接 TCP Hub..."
                         onTriggered: {
                             tcpHubConnDialog.open()
                         }
@@ -210,7 +210,7 @@ Item {
                                 hubBox.connectToHub()
                             }
 
-                            title: "Connect TCP Hub"
+                            title: "连接 TCP Hub"
 
                             TcpHubBox {
                                 id: hubBox
@@ -221,7 +221,7 @@ Item {
                     }
 
                     MenuItem {
-                        text: "Clear TCP hub devs"
+                        text: "清除 TCP Hub 设备"
                         onTriggered: {
                             tcpHubClearDialog.open()
                         }
@@ -242,7 +242,7 @@ Item {
                                 VescIf.clearTcpHubDevs()
                             }
 
-                            title: "Clear TCP Hub Devices"
+                            title: "清除 TCP Hub 设备"
 
                             Text {
                                 color: Utility.getAppHexColor("lightText")
@@ -256,7 +256,7 @@ Item {
                     }
 
                     MenuItem {
-                        text: "Connect Virtual ESC"
+                        text: "连接虚拟 ESC"
                         onTriggered: {
                             VescIf.connectVirtual()
                         }
@@ -356,7 +356,7 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                                 Layout.rightMargin: 5
                                 color: Utility.getAppHexColor("lightText")
-                                text: "Preferred"
+                                text: "首选"
                                 horizontalAlignment: Text.AlignHCenter
                             }
 
@@ -400,7 +400,7 @@ Item {
                                     }
                                 }
 
-                                text: "Connect"
+                                text: "连接"
 
                                 onClicked: {
                                     if (connectionType === 1) {
@@ -425,7 +425,7 @@ Item {
                                 id: passButton
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                                 Layout.preferredHeight: 55
-                                text: "Update Password"
+                                text: "更新密码"
                                 visible: connectionType === 3
 
                                 onClicked: {
@@ -438,7 +438,7 @@ Item {
                                 id: nameButton
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                                 Layout.preferredHeight: 55
-                                text: "Set Name"
+                                text: "设置名称"
                                 visible: connectionType === 0
 
                                 onClicked: {
@@ -621,7 +621,7 @@ Item {
             if (done) {
                 scanDotTimer.running = false
                 scanning = false
-                scanButton.text = qsTr("Scan...")
+                scanButton.text = "扫描..."
             }
             var devices = [];
             
@@ -708,7 +708,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Connecting..."
+        title: "连接中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true
@@ -734,7 +734,7 @@ Item {
         standardButtons: Dialog.Ok | Dialog.Cancel
         modal: true
         focus: true
-        title: "Set BLE Device Name"
+        title: "设置 BLE 设备名称"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"
@@ -779,7 +779,7 @@ Item {
         standardButtons: Dialog.Ok | Dialog.Cancel
         modal: true
         focus: true
-        title: "Set TCP Hub Password"
+        title: "设置 TCP Hub 密码"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"
@@ -826,7 +826,7 @@ Item {
             color: "#AA000000"
         }
 
-        title: "BLE scan"
+        title: "BLE 扫描"
 
         Text {
             color: Utility.getAppHexColor("lightText")
@@ -877,7 +877,7 @@ Item {
                         false, false)
         }
 
-        title: "BLE scan"
+        title: "BLE 扫描"
 
         Text {
             color: Utility.getAppHexColor("lightText")

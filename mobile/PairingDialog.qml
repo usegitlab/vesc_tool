@@ -68,7 +68,7 @@ Item {
                 id: text
                 Layout.fillWidth: true
                 color: Utility.getAppHexColor("lightText")
-                text: qsTr("These are the VESCs paired to this instance of VESC Tool.")
+                text: "这些是与此 VESC Tool 实例配对的 VESC。"
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -122,7 +122,7 @@ Item {
                             Button {
                                 Layout.alignment: Qt.AlignVCenter
                                 Layout.rightMargin: 10
-                                text: "Delete"
+                                text: "删除"
 
                                 onClicked: {
                                     deleteDialog.open()
@@ -136,7 +136,7 @@ Item {
                                     focus: true
                                     width: parent.width - 20
                                     closePolicy: Popup.CloseOnEscape
-                                    title: "Delete paired VESC"
+                                    title: "删除已配对的 VESC"
                                     x: 10
                                     y: 10 + parent.height / 2 - height / 2
                                     parent: dialogParent
@@ -182,7 +182,7 @@ Item {
                         width: 500
 
                         MenuItem {
-                            text: "Add current without pairing"
+                            text: "不配对添加当前设备"
                             onTriggered: {
                                 if (VescIf.isPortConnected()) {
                                     VescIf.addPairedUuid(VescIf.getConnectedUuid());
@@ -196,14 +196,14 @@ Item {
                         }
 
                         MenuItem {
-                            text: "Add from UUID"
+                            text: "从 UUID 添加"
                             onTriggered: {
                                 uuidEnter.open()
                             }
                         }
 
                         MenuItem {
-                            text: "Unpair connected"
+                            text: "取消配对已连接"
                             onTriggered: {
                                 if (VescIf.isPortConnected()) {
                                     if (mCommands.isLimitedMode()) {
@@ -225,7 +225,7 @@ Item {
 
                 Button {
                     id: pairConnectedButton
-                    text: "Pair VESC"
+                    text: "配对 VESC"
                     Layout.fillWidth: true
                     onClicked: {
                         if (VescIf.isPortConnected()) {
@@ -245,7 +245,7 @@ Item {
                 }
 
                 Button {
-                    text: "Close"
+                    text: "关闭"
                     Layout.fillWidth: true
                     onClicked: {
                         dialog.close()
@@ -263,7 +263,7 @@ Item {
         focus: true
         width: parent.width - 20 - notchLeft - notchRight
         closePolicy: Popup.CloseOnEscape
-        title: "Pair connected VESC"
+        title: "配对已连接的 VESC"
         x: (parent.width - width)/2
         y: 10 + Math.max((parent.height - height) / 2, 10)
         parent: dialogParent
@@ -304,7 +304,7 @@ Item {
         focus: true
         width: parent.width - 20 - notchLeft - notchRight
         closePolicy: Popup.CloseOnEscape
-        title: "Unpair connected VESC"
+        title: "取消配对已连接的 VESC"
         x: (parent.width - width)/2
         y: 10 + parent.height / 2 - height / 2
         parent: dialogParent
@@ -318,7 +318,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             wrapMode: Text.WordWrap
-            text: "This is going to unpair the connected VESC. Continue?"
+            text: "这将取消配对已连接的 VESC，继续吗？"
         }
 
         onAccepted: {
@@ -334,7 +334,7 @@ Item {
         standardButtons: Dialog.Ok | Dialog.Cancel
         modal: true
         focus: true
-        title: "Add UUID"
+        title: "添加 UUID"
 
         width: parent.width - 20  - notchLeft - notchRight
         height: 200

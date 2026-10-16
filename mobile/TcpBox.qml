@@ -43,7 +43,7 @@ Item {
         CheckBox {
             id: tcpServerEnBox
             focusPolicy: Qt.NoFocus
-            text: "Activate Bridge"
+            text: "激活桥接"
             Layout.fillWidth: true
             Layout.columnSpan: 2
 
@@ -57,7 +57,7 @@ Item {
         }
 
         Text {
-            text: "TCP Port"
+            text: "TCP 端口"
             color: Utility.getAppHexColor("lightText")
             Layout.fillWidth: true
             Layout.preferredWidth: 5000

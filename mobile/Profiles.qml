@@ -97,7 +97,7 @@ Item {
         rightMargin: 10
         leftMargin: 10
         closePolicy: Popup.CloseOnEscape
-        title: "Remove profile"
+        title: "删除配置"
         y: 10 + parent.height / 2 - height / 2
         parent: topItem.dialogParent
         width: parent.width - (rightMargin + leftMargin)
@@ -111,7 +111,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             wrapMode: Text.WordWrap
-            text: "This is going to delete this profile. Are you sure?"
+            text: "这将删除此配置文件，确定吗？"
         }
 
         onAccepted: {
@@ -144,7 +144,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Add Profile"
+                text: "添加配置"
 
                 onClicked: {
                     editor.profileName = "New profile"
@@ -169,7 +169,7 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Remove All Profiles"
+                        text: "删除所有配置"
                         onTriggered: {
                             clearDialog.open()
                         }
@@ -187,7 +187,7 @@ Item {
         rightMargin: 10
         leftMargin: 10
         closePolicy: Popup.CloseOnEscape
-        title: "Remove all profiles"
+        title: "删除所有配置"
 
         Overlay.modal: Rectangle {
             color: "#AA000000"

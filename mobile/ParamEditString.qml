@@ -110,7 +110,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
                     flat: true
-                    text: "Current"
+                    text: "电流"
                     onClicked: {
                         params.setUpdateOnly(paramName)
                         params.requestUpdate()
@@ -124,7 +124,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
                     flat: true
-                    text: "Default"
+                    text: "默认"
                     onClicked: {
                         params.setUpdateOnly(paramName)
                         params.requestUpdateDefault()
@@ -138,7 +138,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredWidth: 500
                     flat: true
-                    text: "Help"
+                    text: "帮助"
                     onClicked: {
                         VescIf.emitMessageDialog(
                                     params.getLongName(paramName),

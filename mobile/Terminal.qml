@@ -55,7 +55,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Clear"
+                text: "清除"
 
                 onClicked: {
                     terminalText.clear()
@@ -65,7 +65,7 @@ Item {
             Button {
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: "Send"
+                text: "发送"
 
                 onClicked: {
                     mCommands.sendTerminalCmd(stringInput.text)
@@ -89,37 +89,37 @@ Item {
                     width: parent.width
 
                     MenuItem {
-                        text: "Print Faults"
+                        text: "打印故障"
                         onTriggered: {
                             mCommands.sendTerminalCmd("faults")
                         }
                     }
                     MenuItem {
-                        text: "Print Threads"
+                        text: "打印线程"
                         onTriggered: {
                             mCommands.sendTerminalCmd("threads")
                         }
                     }
                     MenuItem {
-                        text: "Show Help"
+                        text: "显示帮助"
                         onTriggered: {
                             mCommands.sendTerminalCmd("help")
                         }
                     }
                     MenuItem {
-                        text: "Reboot"
+                        text: "重启"
                         onTriggered: {
                             mCommands.reboot()
                         }
                     }
                     MenuItem {
-                        text: "Shutdown"
+                        text: "关机"
                         onTriggered: {
                             mCommands.shutdown()
                         }
                     }
                     MenuItem {
-                        text: "Restart LispBM"
+                        text: "重启 LispBM"
                         onTriggered: {
                             mCommands.lispSetRunning(1)
                         }

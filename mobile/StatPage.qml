@@ -40,7 +40,7 @@ Item {
 
         GroupBox {
             id: statBox
-            title: "Since Start"
+            title: "从开始"
             Layout.fillWidth: true
             Layout.preferredHeight: isHorizontal ? tripBox.height : implicitHeight
 
@@ -55,7 +55,7 @@ Item {
 
         GroupBox {
             id: tripBox
-            title: "Trip"
+            title: "行程"
             Layout.fillWidth: true
 
             ColumnLayout {
@@ -71,7 +71,7 @@ Item {
                 }
 
                 Button {
-                    text: "Reset"
+                    text: "重置"
                     Layout.fillWidth: true
                     onClicked: {
                         mCommands.resetStats(false)

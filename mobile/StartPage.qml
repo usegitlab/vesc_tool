@@ -68,7 +68,7 @@ Item {
 
             GroupBox {
                 id: wizardBox
-                title: qsTr("Configuration")
+                title: "配置"
                 Layout.fillWidth: true
                 GridLayout {
                     anchors.topMargin: -5
@@ -85,7 +85,7 @@ Item {
                         Layout.preferredWidth: 500
                         Layout.preferredHeight: 80
 
-                        buttonText: "Connect"
+                        buttonText: "连接"
                         imageSrc: "qrc" + Utility.getThemePath() + (VescIf.isPortConnected() ? "icons/Disconnected-96.png" : "icons/Connected-96.png")
                         onClicked: {
                             if (VescIf.isPortConnected()) {
@@ -201,7 +201,7 @@ Item {
 
             GroupBox {
                 id: toolsBox
-                title: qsTr("Tools and Operations")
+                title: "工具与操作"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.rowSpan: isHorizontal ? 2 : 1
@@ -356,7 +356,7 @@ Item {
             }
 
             GroupBox {
-                title: qsTr("Realtime Data Logging")
+                title: "实时数据记录"
                 Layout.fillWidth: true
 
                 LogBox {
@@ -366,7 +366,7 @@ Item {
             }
 
             GroupBox {
-                title: qsTr("Wireless Bridge to Computer (TCP)")
+                title: "无线桥接至计算机 (TCP)"
                 Layout.fillWidth: true
 
                 TcpBox {
@@ -375,7 +375,7 @@ Item {
             }
 
             GroupBox {
-                title: qsTr("TCP Hub (Internet Bridge)")
+                title: "TCP Hub（网络桥接）"
                 Layout.bottomMargin: isHorizontal ? 0 : 10
                 Layout.fillWidth: true
 
@@ -428,7 +428,7 @@ Item {
 
     Dialog {
         id: directionSetupDialog
-        title: "Direction Setup"
+        title: "方向设置"
         standardButtons: Dialog.Close
         modal: true
         focus: true
@@ -458,7 +458,7 @@ Item {
         focus: true
         width: parent.width - 20 - notchLeft - notchRight
         closePolicy: Popup.CloseOnEscape
-        title: "NRF Pairing"
+        title: "NRF 配对"
 
         parent: mainSwipeView
         x: parent.width/2 - width/2
@@ -492,7 +492,7 @@ Item {
         focus: true
         width: parent.width - 20 - notchLeft - notchRight
         closePolicy: Popup.CloseOnEscape
-        title: "Backup configuration(s)"
+        title: "备份配置"
 
         parent: mainSwipeView
         x: parent.width/2 - width/2
@@ -536,7 +536,7 @@ Item {
         focus: true
         width: parent.width - 20 - notchLeft - notchRight
         closePolicy: Popup.CloseOnEscape
-        title: "Restore configuration backup(s)"
+        title: "恢复配置备份"
 
         parent: mainSwipeView
         x: parent.width/2 - width/2
@@ -575,7 +575,7 @@ Item {
 
     Dialog {
         id: progDialog
-        title: "Processing..."
+        title: "处理中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true

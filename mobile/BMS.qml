@@ -258,7 +258,7 @@ Item {
                 Text {
                     id: valText
                     color: Utility.getAppHexColor("lightText")
-                    text: "No Data"
+                    text: "无数据"
                     font.family: "DejaVu Sans Mono"
                     verticalAlignment: Text.AlignVCenter
                     anchors.fill: parent
@@ -300,43 +300,43 @@ Item {
                         width: parent.width
 
                         MenuItem {
-                            text: "Balance On"
+                            text: "平衡开启"
                             onTriggered: {
                                 mCommands.bmsForceBalance(true)
                             }
                         }
                         MenuItem {
-                            text: "Balance Off"
+                            text: "平衡关闭"
                             onTriggered: {
                                 mCommands.bmsForceBalance(false)
                             }
                         }
                         MenuItem {
-                            text: "Reset Ah Counter"
+                            text: "重置安时计数器"
                             onTriggered: {
                                 mCommands.bmsResetCounters(true, false)
                             }
                         }
                         MenuItem {
-                            text: "Reset Wh Counter"
+                            text: "重置瓦时计数器"
                             onTriggered: {
                                 mCommands.bmsResetCounters(false, true)
                             }
                         }
                         MenuItem {
-                            text: "Allow Charging"
+                            text: "允许充电"
                             onTriggered: {
                                 mCommands.bmsSetChargeAllowed(true)
                             }
                         }
                         MenuItem {
-                            text: "Disable Charging"
+                            text: "禁用充电"
                             onTriggered: {
                                 mCommands.bmsSetChargeAllowed(false)
                             }
                         }
                         MenuItem {
-                            text: "Zero Current Offset"
+                            text: "零电流偏移"
                             onTriggered: {
                                 mCommands.bmsZeroCurrentOffset()
                             }

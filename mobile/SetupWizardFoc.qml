@@ -232,7 +232,7 @@ Item {
                         label: CheckBox {
                             id: overrideUsageBox
                             checked: false
-                            text: qsTr("Override (Advanced)")
+                            text: "覆盖（高级）"
 
                             onToggled: {
                                 if (!checked) {
@@ -388,7 +388,7 @@ Item {
                         label: CheckBox {
                             id: overrideBox
                             checked: false
-                            text: qsTr("Override (Advanced)")
+                            text: "覆盖（高级）"
 
                             onToggled: {
                                 if (!checked) {
@@ -499,7 +499,7 @@ Item {
                         label: CheckBox {
                             id: overrideBattBox
                             checked: false
-                            text: qsTr("Advanced (0 = defaults)")
+                            text: "高级 (0 = 默认)"
 
                             onToggled: {
                                 if (!checked) {
@@ -547,7 +547,7 @@ Item {
                     columns: dialog.isHorizontal ? 2 : 1
                     GroupBox {
                         id: gearRatioBox
-                        title: qsTr("Gear Ratio")
+                        title: "齿轮比"
                         Layout.preferredHeight: implicitHeight
                         Layout.fillWidth: true
                         Layout.column: 0
@@ -559,7 +559,7 @@ Item {
 
                             CheckBox {
                                 id: directDriveBox
-                                text: "Direct Drive"
+                                text: "直驱"
                                 Layout.fillWidth: true
                             }
 
@@ -568,7 +568,7 @@ Item {
                                 Text {
                                     Layout.fillWidth: true
                                     color: {color = Utility.getAppHexColor("lightText")}
-                                    text: qsTr("Motor Pulley")
+                                    text: "电机皮带轮"
                                 }
 
                                 SpinBox {
@@ -590,7 +590,7 @@ Item {
                                 Text {
                                     Layout.fillWidth: true
                                     color: {color = Utility.getAppHexColor("lightText")}
-                                    text: qsTr("Wheel Pulley")
+                                    text: "车轮皮带轮"
                                 }
 
                                 SpinBox {
@@ -668,7 +668,7 @@ Item {
                 id: prevButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Cancel"
+                text: "取消"
                 flat: true
 
                 onClicked: {
@@ -687,7 +687,7 @@ Item {
                 id: nextButton
                 Layout.fillWidth: true
                 Layout.preferredWidth: 500
-                text: "Next"
+                text: "下一步"
                 flat: true
 
                 onClicked: {
@@ -731,7 +731,7 @@ Item {
         rightMargin: 10 + notchRight
         leftMargin: 10 + notchLeft
         closePolicy: Popup.CloseOnEscape
-        title: "Load Default Parameters"
+        title: "加载默认参数"
         parent: dialogParent
         width: parent.width - (rightMargin + leftMargin)
         Overlay.modal: Rectangle {
@@ -774,7 +774,7 @@ Item {
         rightMargin: 10 + notchRight
         leftMargin: 10 + notchLeft
         closePolicy: Popup.CloseOnEscape
-        title: "Motor Selection"
+        title: "电机选择"
         y: 10 + parent.height / 2 - height / 2
         parent: dialogParent
         width: parent.width - (rightMargin + leftMargin)
@@ -833,7 +833,7 @@ Item {
         rightMargin: 10 + notchRight
         leftMargin: 10 + notchLeft
         closePolicy: Popup.CloseOnEscape
-        title: "Battery Settings"
+        title: "电池设置"
         y: 10 + parent.height / 2 - height / 2
         parent: dialogParent
         width: parent.width - (rightMargin + leftMargin)
@@ -867,7 +867,7 @@ Item {
         rightMargin: 10 + notchRight
         leftMargin: 10 + notchLeft
         closePolicy: Popup.CloseOnEscape
-        title: "Detect FOC Parameters"
+        title: "检测 FOC 参数"
         parent: dialogParent
         width: parent.width - (rightMargin + leftMargin)
 
@@ -892,7 +892,7 @@ Item {
             CheckBox {
                 id: detectCanBox
                 checked: true
-                text: "Detect all motors over CAN Bus"
+                text: "检测 CAN 总线上所有电机"
             }
         }
 
@@ -1051,7 +1051,7 @@ Item {
 
     Dialog {
         id: commDialog
-        title: "Processing..."
+        title: "处理中..."
         closePolicy: Popup.NoAutoClose
         modal: true
         focus: true

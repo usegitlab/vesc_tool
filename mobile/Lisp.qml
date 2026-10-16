@@ -217,7 +217,7 @@ Item {
 
     Dialog {
         id: dlDialog
-        title: "Processing..."
+        title: "处理中..."
         closePolicy: Popup.NoAutoClose
         standardButtons: Dialog.Cancel
         modal: true
@@ -282,7 +282,7 @@ Item {
             Layout.fillWidth: true
 
             TabButton {
-                text: "Editor"
+                text: "编辑器"
             }
 
             TabButton {
@@ -290,7 +290,7 @@ Item {
             }
 
             TabButton {
-                text: "Stats"
+                text: "统计"
             }
         }
 
@@ -308,13 +308,13 @@ Item {
 
                     CheckBox {
                         id: autoRunBox
-                        text: "Auto Run"
+                        text: "自动运行"
                         checked: true
                     }
 
                     CheckBox {
                         id: reduceLispBox
-                        text: "Reduce"
+                        text: "减少"
                         checked: false
                     }
 
@@ -350,25 +350,25 @@ Item {
                     Layout.topMargin: 8
 
                     Button {
-                        text: "Upload"
+                        text: "上传"
                         Layout.fillWidth: true
                         onClicked: workaroundTimerUpload.start()
                     }
 
                     Button {
-                        text: "Read"
+                        text: "读取"
                         Layout.fillWidth: true
                         onClicked: workaroundTimerRead.start()
                     }
 
                     Button {
-                        text: "Erase"
+                        text: "擦除"
                         Layout.fillWidth: true
                         onClicked: mLoader.lispErase(16)
                     }
 
                     Button {
-                        text: "Stream"
+                        text: "流"
                         Layout.fillWidth: true
                         onClicked: workaroundTimerStream.start()
                     }
@@ -387,17 +387,17 @@ Item {
                             width: parent.width
 
                             MenuItem {
-                                text: "Run"
+                                text: "运行"
                                 onTriggered: mCommands.lispSetRunning(1)
                             }
 
                             MenuItem {
-                                text: "Stop"
+                                text: "停止"
                                 onTriggered: mCommands.lispSetRunning(0)
                             }
 
                             MenuItem {
-                                text: "Open File..."
+                                text: "打开文件..."
                                 onTriggered: {
                                     if (Utility.requestFilePermission()) {
                                         fileDialogLoad.close()
@@ -412,7 +412,7 @@ Item {
                             }
 
                             MenuItem {
-                                text: "Save File as..."
+                                text: "文件另存为..."
                                 onTriggered: {
                                     if (Utility.requestFilePermission()) {
                                         fileDialogSave.close()
@@ -431,7 +431,7 @@ Item {
 
                                 Dl.FileDialog {
                                     id: fileDialogSave
-                                    title: "Please choose a file"
+                                    title: "请选择一个文件"
                                     nameFilters: ["LBM files (*.lbm *.lisp)"]
                                     selectExisting: false
                                     selectMultiple: false
@@ -460,7 +460,7 @@ Item {
                             }
 
                             MenuItem {
-                                text: "Open Recent..."
+                                text: "打开最近..."
                                 onTriggered: {
                                     updateRecentModel(recentFilter.text)
                                     recentDialog.open()
@@ -468,14 +468,14 @@ Item {
                             }
 
                             MenuItem {
-                                text: "Open Example..."
+                                text: "打开示例..."
                                 onTriggered: {
                                     exampleDialog.open()
                                 }
                             }
 
                             MenuItem {
-                                text: "Close File"
+                                text: "关闭文件"
                                 enabled: currentFilePath.length > 0 || editorText.text.length > 0
                                 onTriggered: {
                                     editorText.text = ""
@@ -484,17 +484,17 @@ Item {
                             }
 
                             MenuItem {
-                                text: "Text Size +"
+                                text: "文字 +"
                                 onTriggered: increaseEditorFont()
                             }
 
                             MenuItem {
-                                text: "Text Size -"
+                                text: "文字 -"
                                 onTriggered: decreaseEditorFont()
                             }
 
                             MenuItem {
-                                text: "Help"
+                                text: "帮助"
                                 onTriggered: {
                                     VescIf.emitMessageDialog(
                                                 "VESC LispBM Editor",
@@ -533,7 +533,7 @@ Item {
                     TextField {
                         id: replInput
                         Layout.fillWidth: true
-                        placeholderText: "REPL command"
+                        placeholderText: "REPL 命令"
                         onAccepted: {
                             if (text.length > 0) {
                                 mCommands.lispSendReplCmd(text)
@@ -543,7 +543,7 @@ Item {
                     }
 
                     Button {
-                        text: "Send"
+                        text: "发送"
                         onClicked: {
                             if (replInput.text.length > 0) {
                                 mCommands.lispSendReplCmd(replInput.text)
@@ -571,7 +571,7 @@ Item {
                             }
 
                             MenuItem {
-                                text: "Clear"
+                                text: "清除"
                                 onTriggered: consoleText = ""
                             }
                         }
@@ -620,7 +620,7 @@ Item {
                 }
 
                 Label {
-                    text: "Global Variables"
+                    text: "全局变量"
                     Layout.fillWidth: true
                 }
 
@@ -666,7 +666,7 @@ Item {
 
                     CheckBox {
                         id: pollStatsBox
-                        text: "Auto Poll"
+                        text: "自动轮询"
                         checked: true
                     }
 
@@ -685,7 +685,7 @@ Item {
                     }
 
                     Button {
-                        text: "Refresh"
+                        text: "刷新"
                         onClicked: mCommands.lispGetStats(true)
                     }
                 }
@@ -738,7 +738,7 @@ Item {
 
     Dl.FileDialog {
         id: fileDialogLoad
-        title: "Open LispBM File"
+        title: "打开 LispBM 文件"
         nameFilters: ["LispBM files (*.lbm *.lisp)", "All files (*)"]
         selectExisting: true
         selectMultiple: false
@@ -760,7 +760,7 @@ Item {
         id: recentDialog
         modal: true
         focus: true
-        title: "Recent Files"
+        title: "最近文件"
         closePolicy: Popup.CloseOnEscape
         standardButtons: Dialog.Cancel
         Overlay.modal: Rectangle { color: "#AA000000" }
@@ -777,7 +777,7 @@ Item {
             TextField {
                 id: recentFilter
                 Layout.fillWidth: true
-                placeholderText: "Filter"
+                placeholderText: "筛选"
                 onTextChanged: updateRecentModel(text)
             }
 
@@ -804,7 +804,7 @@ Item {
         id: exampleDialog
         modal: true
         focus: true
-        title: "Examples"
+        title: "示例"
         closePolicy: Popup.CloseOnEscape
         standardButtons: Dialog.Cancel
         Overlay.modal: Rectangle { color: "#AA000000" }
@@ -821,7 +821,7 @@ Item {
             TextField {
                 id: exampleFilter
                 Layout.fillWidth: true
-                placeholderText: "Filter"
+                placeholderText: "筛选"
             }
 
             ListView {

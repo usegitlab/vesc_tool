@@ -49,7 +49,7 @@ Item {
         CheckBox {
             id: enableBox
             focusPolicy: Qt.NoFocus
-            text: "Connect as Server"
+            text: "以服务端连接"
             Layout.fillWidth: true
             Layout.columnSpan: 2
             visible: showControls
@@ -68,7 +68,7 @@ Item {
         }
 
         Text {
-            text: "Server"
+            text: "服务器"
             color: Utility.getAppHexColor("lightText")
             Layout.fillWidth: false
         }
@@ -99,7 +99,7 @@ Item {
         }
 
         Text {
-            text: "TCP Port"
+            text: "TCP 端口"
             color: Utility.getAppHexColor("lightText")
             Layout.fillWidth: false
         }
@@ -146,7 +146,7 @@ Item {
         }
 
         Text {
-            text: "Password"
+            text: "密码"
             color: Utility.getAppHexColor("lightText")
             Layout.fillWidth: false
         }
@@ -184,7 +184,7 @@ Item {
             Button {
                 Layout.topMargin: 5
                 Layout.fillWidth: true
-                text: "Reset Defaults"
+                text: "重置默认值"
                 enabled: !enableBox.checked
                 focusPolicy: Qt.NoFocus
 
@@ -198,7 +198,7 @@ Item {
             Button {
                 Layout.topMargin: 5
                 Layout.fillWidth: true
-                text: "Connect as Client"
+                text: "以客户端连接"
                 enabled: !enableBox.checked
                 focusPolicy: Qt.NoFocus
 
