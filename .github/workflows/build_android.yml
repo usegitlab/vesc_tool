@@ -8,64 +8,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    container:
+      image: rabits/qt:5.15-android
+      options: --user root
 
     steps:
+      - name: Install git (required by checkout)
+        run: apt-get update -y && apt-get install -y git ca-certificates
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-
-      - name: Install NDK 23
+      - name: Show environment
         run: |
-          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
-            "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
-          echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
-
-      - name: Install Qt 5.15.2 for Android (arm64)
-        uses: jurplel/install-qt-action@v4
-        with:
-          version: '5.15.2'
-          host: 'linux'
-          target: 'android'
-          arch: 'android_arm64_v8a'
-          cache: true
-          extra: '--base https://ftp.fau.de/qtproject'
-
-      - name: Install Qt 5.15.2 host tools
-        uses: jurplel/install-qt-action@v4
-        with:
-          version: '5.15.2'
-          host: 'linux'
-          target: 'desktop'
-          arch: 'gcc_64'
-          cache: true
-          set-env: 'false'
-          extra: '--base https://ftp.fau.de/qtproject'
-
-      - name: Install build dependencies
-        run: sudo apt-get update && sudo apt-get install -y build-essential libgl1-mesa-dev
+          qmake --version
+          echo "SDK: $ANDROID_SDK_ROOT"
+          echo "NDK: $ANDROID_NDK_ROOT"
+          ls $ANDROID_NDK_ROOT 2>/dev/null | head -5 || echo "NDK not set"
 
       - name: Build APK
         run: |
           mkdir -p build/android
-          $Qt5_DIR/bin/qmake \
-            "CONFIG += release_android build_mobile" \
+          qmake "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          $HOME/Qt/5.15.2/gcc_64/bin/androiddeployqt \
+          androiddeployqt \
             --gradle \
             --no-gdbserver \
             --output build/android/build \
             --input android-vesc_tool-deployment-settings.json \
-            --android-platform android-31
+            --android-platform android-29
           cp build/android/build/build/outputs/apk/debug/build-debug.apk \
              vesc_tool_mobile_zh.apk
 
