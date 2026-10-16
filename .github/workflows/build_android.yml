@@ -21,48 +21,53 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Install Android SDK & NDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install NDK 23 + platform 31
+      - name: Install Android SDK CLI tools
         run: |
-          sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0"
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          unzip -q cmdline-tools.zip -d $HOME/android-sdk/cmdline-tools
+          mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+
+      - name: Install Android NDK & platform
+        run: |
+          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0"
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
 
-      - name: Install Qt 5.15.2 for Android via aqtinstall
+      - name: Install Qt 5.15.2 for Android
         run: |
           pip install aqtinstall
           aqt install-qt linux android 5.15.2 android_arm64_v8a -O $HOME/Qt
           aqt install-qt linux desktop 5.15.2 gcc_64 -O $HOME/Qt
           echo "QT_ANDROID=$HOME/Qt/5.15.2/android_arm64_v8a" >> $GITHUB_ENV
-          echo "QT_HOST=$HOME/Qt/5.15.2/gcc_64" >> $GITHUB_ENV
           echo "$HOME/Qt/5.15.2/gcc_64/bin" >> $GITHUB_PATH
-          echo "$HOME/Qt/5.15.2/android_arm64_v8a/bin" >> $GITHUB_PATH
 
-      - name: Install build dependencies
-        run: sudo apt-get install -y build-essential libgl1-mesa-dev
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential libgl1-mesa-dev
 
       - name: Build APK
         run: |
           mkdir -p build/android
-          $QT_ANDROID/bin/qmake \
+          $HOME/Qt/5.15.2/android_arm64_v8a/bin/qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
-          $QT_ANDROID/bin/androiddeployqt \
+          $HOME/Qt/5.15.2/gcc_64/bin/androiddeployqt \
             --gradle \
             --no-gdbserver \
             --output build/android/build \
             --input android-vesc_tool-deployment-settings.json \
             --android-platform android-31
           cp build/android/build/build/outputs/apk/debug/build-debug.apk \
-             build/android/vesc_tool_mobile_zh.apk
+             vesc_tool_mobile_zh.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: vesc_tool_mobile_chinese
-          path: build/android/vesc_tool_mobile_zh.apk
+          path: vesc_tool_mobile_zh.apk
           retention-days: 30
