@@ -21,41 +21,45 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Install Android SDK CLI tools
+      - name: Install NDK 23 (SDK already on runner)
         run: |
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip
-          mkdir -p $HOME/android-sdk/cmdline-tools
-          unzip -q cmdline-tools.zip -d $HOME/android-sdk/cmdline-tools
-          mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
-          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
-
-      - name: Install Android NDK & platform
-        run: |
-          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0"
+          echo "y" | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "ndk;23.2.8568313" "platforms;android-31" "build-tools;31.0.0" 2>/dev/null || true
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/23.2.8568313" >> $GITHUB_ENV
 
-      - name: Install Qt 5.15.2 for Android
-        run: |
-          pip install aqtinstall
-          aqt install-qt linux android 5.15.2 android_arm64_v8a -O $HOME/Qt
-          aqt install-qt linux desktop 5.15.2 gcc_64 -O $HOME/Qt
-          echo "QT_ANDROID=$HOME/Qt/5.15.2/android_arm64_v8a" >> $GITHUB_ENV
-          echo "$HOME/Qt/5.15.2/gcc_64/bin" >> $GITHUB_PATH
+      - name: Install Qt 5.15.2 for Android (arm64)
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          target: 'android'
+          arch: 'android_arm64_v8a'
+          aqtversion: '==3.1.*'
+          py7zrversion: '>=0.20.0'
 
-      - name: Install dependencies
+      - name: Install Qt 5.15.2 host tools (gcc_64)
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          target: 'desktop'
+          arch: 'gcc_64'
+          aqtversion: '==3.1.*'
+          set-env: 'false'
+
+      - name: Install build dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential libgl1-mesa-dev
 
       - name: Build APK
         run: |
           mkdir -p build/android
-          $HOME/Qt/5.15.2/android_arm64_v8a/bin/qmake \
+          # Qt5_DIR is set by jurplel/install-qt-action for android target
+          $Qt5_DIR/bin/qmake \
             "CONFIG += release_android build_mobile" \
             ANDROID_ABIS="arm64-v8a" \
             -spec android-clang
           make -j$(nproc)
           make install INSTALL_ROOT=build/android/build
+          # androiddeployqt must come from host tools
           $HOME/Qt/5.15.2/gcc_64/bin/androiddeployqt \
             --gradle \
             --no-gdbserver \
